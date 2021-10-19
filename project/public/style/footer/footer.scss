@@ -1,0 +1,56 @@
+@use "../global/global";
+
+.footer-description {
+  padding: 32px 14px;
+  background-color: var(--text-button);
+}
+
+.adress {
+  margin-bottom: 18px;
+}
+
+.adress__text {
+  display: none;
+  font-size: 12px;
+  line-height: 17px;
+  font-weight: 400;
+  color: var(--text-opacity);
+}
+
+@media (min-width: 768px) {
+  .footer-description {
+    padding: 52px 45px;
+  }
+
+  .footer-description__wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .adress {
+    margin-bottom: 25px;
+  }
+
+  .adress__img {
+    width: 133px;
+  }
+
+  .adress__case {
+    width: 252px;
+  }
+
+  .adress__text {
+    display: block;
+  }
+}
+
+@media (min-width: 1366px) {
+  .footer-description {
+    padding: 54px 98px;
+  }
+
+  .adress__img {
+    width: 148px;
+  }
+}

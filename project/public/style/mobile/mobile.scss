@@ -1,0 +1,41 @@
+@use "../global/global";
+
+.mobile {
+  margin-top: 9px;
+  margin-right: 31%;
+  margin-left: 10%;
+  margin-bottom: 14px;
+}
+
+.mobile__code {
+  position: relative;
+  line-height: 23px;
+}
+
+.mobile__code::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 16px;
+  top: 1px;
+  left: -29px;
+  background-image: url("../../image/phone.svg");
+  background-repeat: no-repeat;
+}
+
+.mobile__description {
+  font-size: 12px;
+  line-height: 17px;
+  font-weight: 400;
+  color: var( --text-opacity);
+  margin-top: 1px;
+}
+
+@media (min-width: 768px) {
+  .mobile {
+    margin-top: 4px;
+    margin-right: 39%;
+    margin-left: 7%;
+    margin-bottom: 21px;
+  }
+}

@@ -1,0 +1,44 @@
+@use "../global/global";
+
+.contacts {
+  margin-top: 9px;
+  margin-right: 33%;
+  margin-left: 12%;
+}
+
+.contacts__mobile {
+  position: relative;
+  font-size: 16px;
+  line-height: 23px;
+  text-decoration: none;
+  color: var(--text-classic);
+  font-weight: 500;
+}
+
+.contacts__mobile::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 1px;
+  left: -33px;
+  background-image: url("../../image/phone-contact.svg");
+  background-repeat: no-repeat;
+}
+
+.contacts__description {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  color: var(--text-classic);
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .contacts {
+    margin-top: 9px;
+    margin-right: 39%;
+    margin-left: 8%;
+    margin-bottom: 28px;
+  }
+}

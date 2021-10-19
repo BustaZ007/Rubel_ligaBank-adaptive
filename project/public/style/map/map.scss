@@ -1,0 +1,57 @@
+.map {
+  margin-bottom: 60px;
+}
+
+.map__wrapper {
+  padding: 0 14px;
+  margin-bottom: 27px;
+}
+
+.map__header {
+  font-size: 22px;
+  line-height: 31px;
+  font-weight: 700;
+}
+
+.map__yandex {
+  width: 280px;
+  height: 100px;
+}
+
+@media (min-width: 768px) {
+  .map {
+    padding: 0 45px;
+    margin-bottom: 80px;
+  }
+
+  .map__wrapper {
+    padding: 0;
+  }
+
+  .map__yandex {
+    min-width: 678px;
+    height: 462px;
+  }
+
+  .map__header {
+    font-size: 32px;
+    line-height: 45px;
+    margin-bottom: 34px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .map {
+    padding: 0 98px;
+    margin-bottom: 134px;
+  }
+
+  .map__header {
+    font-size: 41px;
+    line-height: 51px;
+  }
+
+  .map__yandex {
+    min-width: 1170px;
+  }
+}

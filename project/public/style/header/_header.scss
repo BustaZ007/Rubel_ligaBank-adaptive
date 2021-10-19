@@ -1,0 +1,142 @@
+@use "../global/global";
+
+.header {
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
+  background-color: var(--text-button);
+  padding: 13px calc(20px);
+  position: relative;
+}
+
+.header__login-text {
+  display: none;
+}
+
+.header__nav {
+  display: none;
+}
+
+.header__img {
+  margin-left: 24%;
+}
+
+.header__menu {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  border: none;
+  width: 16px;
+  height: 10px;
+  background-color: var(--text-button);
+  top: 18px;
+  left: 15px;
+}
+
+.header__menu::after {
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 18px;
+  top: 0;
+  left: 0;
+  background-image: url("../../image/menu.svg");
+  background-repeat: no-repeat;
+}
+
+.header__login {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  border: none;
+  width: 16px;
+  height: 10px;
+  top: 16px;
+  right: 13px;
+  background-color: var(--text-button);
+}
+
+.header__login::after {
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 18px;
+  top: 0;
+  right: 0;
+  background-image: url("../../image/login-mobile.svg");
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: 25px 45px 18px 45px;
+  }
+
+  .display-tablet {
+    display: none;
+  }
+
+  .header__img {
+    margin: 0;
+    width: 133px;
+  }
+
+  .header__nav {
+    display: block;
+  }
+
+  .header__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 3px;
+    margin-left: 12%;
+  }
+
+  .header__item {
+    font-size: 14px;
+    line-height: 16px;
+    margin-right: 4%;
+  }
+
+  .header__login {
+    top: 18px;
+    right: 46px;
+  }
+
+  .header__login::after {
+    width: 20px;
+    height: 22px;
+    background-image: url("../../image/vector-tablet.svg")
+  }
+}
+
+@media (min-width: 1366px) {
+  .header {
+    padding: 33px 98px 30px 98px;
+  }
+
+  .header__login-text {
+    display: block;
+    min-width: 173px;
+    margin-top: 2px;
+  }
+
+  .header__img {
+    width: 148px;
+  }
+
+  .header__list {
+    margin-left: 13%;
+  }
+
+  .header__item {
+    font-size: 16px;
+    line-height: 19px;
+    margin-right: 3%;
+  }
+
+  .header__login {
+    top: 35px;
+    right: 281px;
+  }
+}

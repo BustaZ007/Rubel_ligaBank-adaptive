@@ -1,0 +1,53 @@
+@use "../global/global";
+
+.error {
+  transform: scale(1);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 12;
+  padding: 0 14px;
+  box-sizing: border-box;
+}
+
+.error__wrapper {
+  background: var(--text-button);
+  border-radius: 4px;
+  padding: 40px 22px 40px 15px;
+}
+
+.error__header {
+  font-size: 18px;
+  line-height: 25px;
+  margin-right: 4%;
+  color: var(--text-classic);
+}
+
+.error__text {
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--color-label);
+}
+
+@media(min-width: 768px) {
+  .error {
+    width: 100%;
+  }
+
+  .error__wrapper {
+    padding: 60px 60px 60px 60px;
+  }
+
+  .error__case {
+    margin-right: 20%;
+  }
+
+  .error__text {
+    margin-right: 20%;
+  }
+}
