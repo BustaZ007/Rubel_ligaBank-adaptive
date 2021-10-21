@@ -3,12 +3,14 @@ import CreditTime from '../credit-time/credit-time';
 import Display from '../display/display';
 import Dropdown from '../dropdown/dropdown';
 import InitialPayment from '../initial-payment/initial-payment';
+import Error from '../error/error';
 
 function Calc() {
   const [selected, setSelected] = useState(-1); // 0 это ипотечное кредитование 1 авто 
   const [counter, setCounter] = useState(1);
   const incrementCounter = (value) => setCounter(counter + value);
   let decrement = (value) => setCounter(counter - value);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const [initialPayment, setInitialPayment] = useState(1);
 
@@ -51,6 +53,22 @@ function Calc() {
 
   function getMontlyPayment() {
     return Math.round(getCreditSumm() * getPercent()/1200/(1- Math.pow(1+getPercent()/1200,-creditTime*12)));
+  }
+
+  function submitCredit() {
+    if(selected === 0) {
+      if(getCreditSumm() < 500000) {
+        setErrorMessage(<Error type={0} />);
+      } else {
+        setStepCount(3);
+      }
+    } else {
+      if(getCreditSumm() < 200000) {
+        setErrorMessage(<Error type={1} />);
+      } else {
+        setStepCount(3);
+      }
+    }
   }
 
   return(
@@ -129,7 +147,10 @@ function Calc() {
                   </li>
                 </ul>
               </div>
-              <button className="calc__button">Оформить заявку</button>
+              <button className="calc__button" onClick={(evt) => {
+                evt.preventDefault();
+                submitCredit();
+              }}>Оформить заявку</button>
             </div>
           </div>
         </div>

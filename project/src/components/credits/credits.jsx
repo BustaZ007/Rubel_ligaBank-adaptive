@@ -24,10 +24,6 @@ function Credits() {
             </picture>
           </div>
         </div>
-
-        <div className="dot-information">
-          <div className="dot-information__item"></div>
-        </div>
       </div>
     </>
   );

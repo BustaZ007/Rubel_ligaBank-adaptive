@@ -5,7 +5,7 @@
 # testing
 /coverage
 
-/build
+/bundle
 
 # misc
 .DS_Store

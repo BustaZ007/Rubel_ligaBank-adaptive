@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { YMaps, Map, Placemark } from 'react-yandex-maps';
 import Banner from '../banner/banner';
 import Calc from '../calc/calc';
 import Information from '../information/information';
-
+import Sigin from '../sigin/sigin';
 const mapData = {
   center: [55.751574, 37.573856],
   zoom: 5,
@@ -16,6 +16,7 @@ const coordinates = [
 ];
 
 function Main() {
+  const [modalActive, setModalActive] = useState(false);
   return(
     <>
       <header className="header">
@@ -32,8 +33,9 @@ function Main() {
           </ul>
         </nav>
         <div className="header__login-case">
-          <button className="header__login"></button>
-          <span className="header__login-text">Войти в Интернет-банк</span>
+          <button onClick={() => setModalActive(true)} className="header__login">
+            <span className="header__login-text">Войти в Интернет-банк</span>
+          </button>
         </div>
       </header>
 
@@ -126,22 +128,7 @@ function Main() {
         </div>
       </section>
   </footer>
-  <div className="error error-active">
-    <div className="error__wrapper">
-      <div className="error__case">
-        <h2 className="error__header">Наш банк не выдаёт ипотечные кредиты меньше 200 000 рублей.</h2>
-        <p className="error__text">Попробуйте использовать другие параметры для расчёта.</p>
-      </div>
-    </div>
-  </div>
-
-  <div className="success success-active">
-    <div className="success__wrapper">
-      <button className="success__button"></button>
-      <h2 className="success__header">Спасибо за обращение в наш банк.</h2>
-      <p className="success__text">Наш менеджер скоро свяжется с вами по указанному номеру телефона</p>
-    </div>
-  </div>
+  <Sigin active={modalActive} setActive={setModalActive}/>
   </>
   );
 }

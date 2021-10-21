@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSwipeable } from 'react-swipeable';
 import { Tab } from '../../const';
 import Credits from '../credits/credits';
 import Deposits from '../deposits/deposits';
@@ -8,6 +9,8 @@ import Service from '../service/service';
 
 function Information() {
   const [activeTab, setActiveTab] = useState('deposits');
+
+  const tabs = [Tab.DEPOSITS, Tab.CREDITS, Tab.INSURANCE, Tab.SERVISES];
 
   function tabClick(evt) {
     switch(evt.target.name) {
@@ -55,9 +58,24 @@ function Information() {
     }
   };
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () => {
+      if(activeTab === Tab.SERVISES) {
+        return;
+      }
+      setActiveTab(tabs[tabs.indexOf(activeTab) + 1]);
+    },
+    onSwipedRight: () => {
+      if(activeTab === Tab.DEPOSITS) {
+        return;
+      }
+      setActiveTab(tabs[tabs.indexOf(activeTab) - 1]);
+    }
+  });
+
   return(
     <>
-    <section className="information">
+    <section className="information" {...handlers}>
       <div className="information__tabs">
         <ul className="information__tabs-list">
         <li className={`information__tabs-item ${activeTab === Tab.DEPOSITS && 'information__tabs-item--active'}`}
@@ -117,6 +135,12 @@ function Information() {
         </ul>
       </div>
       {renderTab(activeTab)}
+      <div className="dot-information">
+      {tabs.map((tab, index) => {
+       return <div key={index} className={(tabs.indexOf(activeTab) === index) ? "dot-information__active" : "dot-information__item"}></div>
+      })
+      }
+      </div>
     </section>
     </>
   );
