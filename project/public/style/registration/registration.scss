@@ -5,7 +5,6 @@
 }
 
 .registration__wrapper {
-  // padding: 66px 70px;
   border-radius: 4px;
 }
 
@@ -47,11 +46,12 @@
 }
 
 .registration__name {
-  width: 99%;
+  width: 93%;
   height: 56px;
   border-radius: 4px;
   border: 1px solid #0A1E32;
   margin-bottom: 21px;
+  padding-left: 15px;
 }
 
 .registration__case {
@@ -67,10 +67,19 @@
 
 .registration__phohe,
 .registration__email {
-  width: 98%;
+  width: 93%;
   border-radius: 4px;
   height: 56px;
   border: 1px solid #0A1E32;
+  padding-left: 15px;
+}
+
+.registration__name::placeholder,
+.registration__phohe::placeholder,
+.registration__email::placeholder {
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--text-opacity);
 }
 
 .registration__button-case {
@@ -128,11 +137,14 @@
 
   .registration__name {
     margin-bottom: 30px;
+    padding-left: 23px;
+    width: 96%;
   }
 
   .registration__phohe,
   .registration__email {
-    width: 47%;
+    width: 44%;
+    padding-left: 23px;
   }
 
   .registration__button {

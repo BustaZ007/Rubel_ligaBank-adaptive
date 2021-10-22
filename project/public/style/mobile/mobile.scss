@@ -39,3 +39,12 @@
     margin-bottom: 21px;
   }
 }
+
+@media(min-width: 1366px) {
+  .mobile {
+    margin: 0;
+  }
+  .mobile__description {
+    padding-right: 40%;
+  }
+}

@@ -1,9 +1,9 @@
 import React from "react";
 
-function Error({type}) {
+function Error({type, close}) {
   return(
     <>
-    <div className="error error-active">
+    <div className="error error-active" onClick={() => close(null)}>
       <div className="error__wrapper">
         <div className="error__case">
           <h2 className="error__header">{`Наш банк не выдаёт ${(type) ? "автомобильные" : "ипотечные"} кредиты меньше ${(type) ? "200000" : "500000"} рублей.`}</h2>

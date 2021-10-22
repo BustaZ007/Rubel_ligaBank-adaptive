@@ -4,6 +4,7 @@ import Display from '../display/display';
 import Dropdown from '../dropdown/dropdown';
 import InitialPayment from '../initial-payment/initial-payment';
 import Error from '../error/error';
+import Success from '../success/success';
 
 function Calc() {
   const [selected, setSelected] = useState(-1); // 0 это ипотечное кредитование 1 авто 
@@ -16,12 +17,17 @@ function Calc() {
 
   const [creditTime, setCreditTime] = useState(5);
 
-  const [maternalCapital, setMaternalCapital] = useState(false);
+  const [maternalCapital, setMaternalCapital] = useState(true);
   const [casko, setCasko] = useState(false);
   const [insurance, setInsurance] = useState(false);
 
   const [stepCount, setStepCount] = useState(1);
 
+  const [applicationNumber, setApplicationNumber] = useState("");
+
+  if(!localStorage.getItem("application-number")) {
+    localStorage.setItem("application-number", "10");
+  }
 
   function selectCreditType(type) {
     setSelected(type);
@@ -40,7 +46,7 @@ function Calc() {
 
   function getPercent() {
     if(selected === 0) {
-      return (initialPayment / counter < 0.15) ? 9.4 : 8.5;
+      return (initialPayment / counter < 0.15) ? 9.40 : 8.50;
     } 
     if((casko && !insurance) || (!casko && insurance)) {
       return 8.5;
@@ -55,18 +61,31 @@ function Calc() {
     return Math.round(getCreditSumm() * getPercent()/1200/(1- Math.pow(1+getPercent()/1200,-creditTime*12)));
   }
 
+  // function validateFields() {
+  //   return(selected === 0 && counter > 1200000 && counter < 2500000) || (selected === 1 && counter > 500000 && counter < 500000);
+  // }
+
   function submitCredit() {
+    // if(!validateFields()) {
+    //   return;
+    // }
+
     if(selected === 0) {
       if(getCreditSumm() < 500000) {
-        setErrorMessage(<Error type={0} />);
+        setErrorMessage(<Error close={setErrorMessage} type={0} />);
       } else {
+        setApplicationNumber(localStorage.getItem("application-number"));
         setStepCount(3);
+        const number = localStorage.getItem("application-number");
+        localStorage.setItem("application-number", Number(number) + 1);
       }
     } else {
       if(getCreditSumm() < 200000) {
-        setErrorMessage(<Error type={1} />);
+        setErrorMessage(<Error close={setErrorMessage} type={1} />);
       } else {
+        setApplicationNumber(localStorage.getItem("application-number"));
         setStepCount(3);
+        localStorage.setItem("application-number", Number(number) + 1);
       }
     }
   }
@@ -96,6 +115,7 @@ function Calc() {
                 <CreditTime creditTime={creditTime} onChange={setCreditTime} selected={selected}/>
 
                 <input 
+                  className="calc__maternalCapital"
                   type="checkbox" 
                   id="maternalCapital" 
                   checked={maternalCapital}
@@ -161,7 +181,7 @@ function Calc() {
           <ul className="registration__list">
             <li className="registration__item">
               <span className="registration__text">Номер заявки</span>
-              <span className="registration__text-cell">№ 0010</span>
+              <span className="registration__text-cell">№ 00{applicationNumber}</span>
             </li>
             <li className="registration__item">
               <span className="registration__text">Цель кредита</span>
@@ -181,18 +201,19 @@ function Calc() {
             </li>
           </ul>
           <label className="visually-hidden">ФИО</label>
-          <input type="text" className="registration__name" />
+          <input type="text" className="registration__name" placeholder="ФИО" />
           <div className="registration__case">
             <label className="visually-hidden">Телефон</label>
-            <input type="text" className="registration__phohe" />
+            <input type="text" className="registration__phohe" placeholder="Телефон" />
             <label className="visually-hidden">Е-mail</label>
-            <input type="text" className="registration__email" />
+            <input type="text" className="registration__email" placeholder="E-mail"/>
           </div>
           <div className="registration__button-case">
-            <button className="registration__button">Отправить</button>
+            <button className="registration__button" type="button" onClick={evt => setErrorMessage(<Success close={setErrorMessage}/>)}>Отправить</button>
           </div>
         </div>
       </div>
+      {errorMessage}
     </section>
     </>
   );

@@ -2,38 +2,50 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { YMaps, Map, Placemark } from 'react-yandex-maps';
 import Banner from '../banner/banner';
+import BurgerMenu from '../burger-menu/burger-menu';
 import Calc from '../calc/calc';
 import Information from '../information/information';
 import Sigin from '../sigin/sigin';
+
 const mapData = {
-  center: [55.751574, 37.573856],
+  center: [55.7522200, 37.6155600],
   zoom: 5,
 };
 
 const coordinates = [
-  [55.684758, 37.738521],
-  [57.684758, 39.738521]
+  [55.7522200, 37.6155600],
+  [51.5405600, 46.0086100],
+  [39.9075000, 116.3972300],
+  [57.1522200, 65.5272200],
+  [54.9924400, 73.3685900],
+  [55.7887400, 49.1221400],
 ];
+
+const mapOptions = {
+  iconLayout: "default#image",
+  iconImageHref: "./image/location.png",
+  iconImageOffset: [-17, -40],
+};
 
 function Main() {
   const [modalActive, setModalActive] = useState(false);
+  const [modalBurgerActive, setModalBurgerActive] = useState(false);
   return(
     <>
       <header className="header">
-        <button className="header__menu display-tablet"></button>
+        <button className="header__menu display-tablet" onClick={() => setModalBurgerActive(true)}></button>
         <picture>
           <img src="./image/logo-mobile.png" className="header__img" alt="logoLiga"/>
         </picture>
-        <nav className="header__nav">
-          <ul className="header__list">
-            <li className="header__item">Услуги</li>
-            <li className="header__item">Рассчитать кредит</li>
-            <li className="header__item">Конвертер валют</li>
-            <li className="header__item">Контакты</li>
-          </ul>
-        </nav>
+          <BurgerMenu modalBurgerActive={modalBurgerActive} setModalBurgerActive={setModalBurgerActive} setModalActive={setModalActive} />
         <div className="header__login-case">
-          <button onClick={() => setModalActive(true)} className="header__login">
+          <button onClick={() => {
+            if(!modalBurgerActive) {
+              setModalActive(true);
+            } else {
+              setModalBurgerActive(false);
+            }
+            }} className={(modalBurgerActive) ? "header__login-close" : "header__login"}>
             <span className="header__login-text">Войти в Интернет-банк</span>
           </button>
         </div>
@@ -52,9 +64,9 @@ function Main() {
         <div className="map__wrapper">
           <h2 className="map__header">Отделения Лига Банка</h2>
         </div>
-        <YMaps>
+        <YMaps className="map__yandex">
           <Map defaultState={mapData} className="map__yandex">
-            {coordinates.map((coordinate, index) => <Placemark key={index} geometry={coordinate} />)}
+            {coordinates.map((coordinate, index) => <Placemark options={mapOptions} key={index} geometry={coordinate} />)}
           </Map>
         </YMaps>
       </div>

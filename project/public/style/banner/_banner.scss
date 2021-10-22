@@ -1,5 +1,9 @@
 @use "../global/global";
 
+.slider {
+  position: relative;
+}
+
 .banner {
   min-height: 226px;
   background: var(--button-color);
@@ -9,14 +13,27 @@
   display: none;
 }
 
-.banner__wrapper {
+.banner__wrapper,
+.banner__wrapper-2,
+.banner__wrapper-3 {
   position: relative;
   min-width: 280px;
   margin: 0 auto;
   min-height: 226px;
-  background-image: url("../../image/main-image.png");
   background-repeat: no-repeat;
-  padding: 0 calc(20px);
+  padding: 0 calc(15px);
+}
+
+.banner__wrapper {
+  background-image: url("../../image/main-image.png");
+}
+
+.banner-2 {
+  background-image: url("../../image/banner-2-mobile.png");
+}
+
+.banner-3 {
+  background-image: url("../../image/banner-3-mobile.png");
 }
 
 .banner__wrapper::before {
@@ -43,7 +60,17 @@
   color: var(--text-button);
 }
 
-.banner__text {
+.banner__header-2 {
+  margin: 0;
+  padding: 0;
+  font-size: 38px;
+  line-height: 45px;
+  font-weight: 700;
+  color: var(--text-classic);
+}
+
+.banner__text,
+.banner__text-2 {
   margin: 0;
   padding: 0;
   font-size: 16px;
@@ -53,7 +80,13 @@
   margin-top: 8px;
 }
 
-.banner__button {
+.banner__text-2 {
+  color: var(--banner-color);
+  margin-right: 49%;
+}
+
+.banner__button,
+.banner__button-2 {
   display: inline-block;
   vertical-align: middle;
   text-align: center;
@@ -64,6 +97,10 @@
   border-radius: 4px;
   margin-top: 23px;
   border: none;
+}
+
+.banner__button-2 {
+  background-color: var(--button-color);
 }
 
 .banner__button-text {
@@ -102,8 +139,19 @@
     min-height: 300px;
   }
 
-  .banner__wrapper {
+  .banner__wrapper,
+  .banner__wrapper-2,
+  .banner__wrapper-3 {
     padding: 0 calc(86px);
+    min-height: 300px;
+  }
+
+  .banner-2 {
+    background-image: url("../../image/banner-2-tablet.png");
+  }
+
+  .banner-3 {
+    background-image: url("../../image/banner-3-tablet.png");
   }
 
   .banner__wrapper::before {
@@ -138,12 +186,37 @@
     font-size: 16px;
     line-height: 19px;
   }
+
+  .dot {
+    top: 278px;
+    left: 47%;
+    width: 45px;
+  }
+
+  .dot__active,
+  .dot__item {
+    width: 8px;
+    height: 8px;
+  }
 }
 
 @media (min-width: 1366px) {
   .banner {
     min-height: 400px;
     margin-bottom: 60px;
+    background-image: url("../../image/main-image.png");
+  }
+
+  .banner-2 {
+    min-height: 400px;
+    margin-bottom: 60px;
+    background-image: url("../../image/banner2.png");
+  }
+
+  .banner-3 {
+    min-height: 400px;
+    margin-bottom: 60px;
+    background-image: url("../../image/banner3.png");
   }
 
   .banner__wrapper {
@@ -152,20 +225,41 @@
     min-height: 400px;
   }
 
+  .banner__wrapper::after {
+    position: absolute;
+    content: "";
+    width: 917px;
+    height: 400px;
+    top: 0px;
+    left: 165px;
+    z-index: 0;
+    background-image: url("../../image/main-image.png");
+  }
   .banner__wrapper::before {
     width: 422px;
     height: 260px;
     top: 60px;
     right: 246px;
     background-image: url("../../image/card-bank.png");
+    z-index: 1;
   }
 
-  .banner__header {
+  .banner__wrapper-2,
+  .banner__wrapper-3 {
+    padding: 0 calc(268px);
+    min-height: 400px;
+    padding: 0 calc(50% - 415px);
+  }
+
+  .banner__header,
+  .banner__header-2 {
     font-size: 54px;
     line-height: 63px;
   }
 
-  .banner__text {
+
+  .banner__text,
+  .banner__text-2 {
     font-size: 22px;
     line-height: 26px;
   }
@@ -177,6 +271,8 @@
 
   .banner__case {
     padding-top: 103px;
+    position: relative;
+    z-index: 1;
   }
 
   .banner__button {

@@ -2,9 +2,9 @@
 
 .header {
   display: grid;
-  grid-template-columns: min-content 1fr min-content;
+  grid-template-columns: 1fr ;
   background-color: var(--text-button);
-  padding: 13px calc(20px);
+  padding: 13px calc(15px);
   position: relative;
 }
 
@@ -14,6 +14,40 @@
 
 .header__nav {
   display: none;
+}
+
+.header__nav-active {
+  display: block;
+}
+
+.header__list {
+  list-style: none;
+  margin-top: 43px;
+  min-height: 684px;
+  min-width: 100%;
+}
+
+.header__item {
+  font-size: 16px;
+  line-height: 19px;
+  border-top: 1px solid #C1C2CA;
+  padding: 20px 15px;
+}
+
+.header__item-button {
+  position: relative;
+  margin-left: 29px;
+}
+
+.header__item-button::before {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 22px;
+  top: 0;
+  left: -25px;
+  background-image: url("../../image/login-mobile.svg");
+  background-repeat: no-repeat;
 }
 
 .header__img {
@@ -66,9 +100,33 @@
   background-repeat: no-repeat;
 }
 
+.header__login-close {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  border: none;
+  width: 16px;
+  height: 10px;
+  top: 16px;
+  right: 19px;
+  background-color: var(--text-button);
+}
+
+.header__login-close::after {
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 18px;
+  top: 0;
+  right: 0;
+  background-image: url("../../image/close.svg");
+  background-repeat: no-repeat;
+}
+
 @media (min-width: 768px) {
   .header {
     padding: 25px 45px 18px 45px;
+    grid-template-columns: min-content 1fr min-content;
   }
 
   .display-tablet {
@@ -90,16 +148,24 @@
     flex-wrap: wrap;
     margin-top: 3px;
     margin-left: 12%;
+    min-height: 20px;
+    min-width: 50px;
   }
 
   .header__item {
     font-size: 14px;
     line-height: 16px;
     margin-right: 4%;
+    border: none;
+    padding: 0;
+  }
+
+  .header__item:last-child {
+    display: none;
   }
 
   .header__login {
-    top: 18px;
+    top: 22px;
     right: 46px;
   }
 
@@ -118,7 +184,7 @@
   .header__login-text {
     display: block;
     min-width: 173px;
-    margin-top: 2px;
+    margin-left: 19px;
     font-size: 16px;
     line-height: 19px;
   }
@@ -128,7 +194,7 @@
   }
 
   .header__list {
-    margin-left: 13%;
+    margin-left: 10%;
   }
 
   .header__item {

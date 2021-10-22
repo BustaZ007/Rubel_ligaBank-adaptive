@@ -1,9 +1,10 @@
 @use "../global/global";
 
 .information {
-  margin-bottom: 54px;
+  margin-bottom: 52px;
   background: var(--text-button);
   position: relative;
+  min-height: 362px;
 }
 
 .information__tabs {
@@ -150,10 +151,10 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: 36px;
+  width: 38px;
   position: absolute;
   top: 345px;
-  left: 47%;
+  left: 44%;
 }
 
 .dot-information__item {
@@ -167,7 +168,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: var(--text-button);
+  background-color: var(--dot);
 }
 
 @media (min-width: 768px) {
@@ -222,6 +223,22 @@
     height: 48px;
     font-size: 16px;
     line-height: 19px;
+  }
+
+  .dot-information {
+    width: 52px;
+    top: 357px;
+    left: 47%;
+  }
+
+  .dot-information__item {
+    width: 8px;
+    height: 8px;
+  }
+
+  .dot-information__active {
+    width: 8px;
+    height: 8px;
   }
 }
 

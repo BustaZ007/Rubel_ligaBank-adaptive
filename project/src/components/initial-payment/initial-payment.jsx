@@ -47,7 +47,7 @@ function InitialPayment({initialPayment, counter, onChange, maternalCapital, sel
         onChange(counter / 100 * evt.target.valueAsNumber);
         }}
     />
-    <label className="calc__text" htmlFor="rangeInitialPayment">{(selected === 0) ? "10%" : "20%"}</label>
+    <p className="calc__text">{(selected === 0) ? "10%" : "20%"}</p>
     </>
   );
 }
