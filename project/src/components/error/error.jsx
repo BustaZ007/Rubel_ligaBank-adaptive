@@ -1,6 +1,20 @@
 import React from "react";
 
-function Error({type, close}) {
+function Error({type, close, error}) {
+  useEffect(() => {
+    const body = document.querySelector('body');
+    body.style.overflow = error ? 'hidden' : 'auto';
+
+    const handleEsc = (event) => {
+      if (event.keyCode === 27) {
+        close(null)
+     }
+   };
+    window.addEventListener('keydown', handleEsc);
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, [error]);
   return(
     <>
     <div className="error error-active" onClick={() => close(null)}>

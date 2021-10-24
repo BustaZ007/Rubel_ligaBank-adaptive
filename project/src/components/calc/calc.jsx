@@ -78,7 +78,7 @@ function Calc() {
 
     if(selected === 0) {
       if(getCreditSumm() < 500000) {
-        setErrorMessage(<Error close={setErrorMessage} type={0} />);
+        setErrorMessage(<Error error={errorMessage} close={setErrorMessage} type={0} />);
       } else {
         setApplicationNumber(localStorage.getItem("application-number"));
         setStepCount(3);
@@ -87,7 +87,7 @@ function Calc() {
       }
     } else {
       if(getCreditSumm() < 200000) {
-        setErrorMessage(<Error close={setErrorMessage} type={1} />);
+        setErrorMessage(<Error error={errorMessage} close={setErrorMessage} type={1} />);
       } else {
         setApplicationNumber(localStorage.getItem("application-number"));
         setStepCount(3);
@@ -264,7 +264,7 @@ function Calc() {
               <button className="registration__button" type="submit" 
               onClick={evt => {
                 if(fio.length > 0 && email.length > 0 && phone.length > 0) {
-                  setErrorMessage(<Success close={setErrorMessage}/>);
+                  setErrorMessage(<Success error={errorMessage} close={setErrorMessage}/>);
                 }
                 }
               }>Отправить</button>
