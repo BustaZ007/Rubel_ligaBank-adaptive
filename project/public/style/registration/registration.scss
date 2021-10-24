@@ -155,7 +155,7 @@
 
 @media (min-width: 1366px) {
   .registration {
-    padding: 0 299px;
+    padding: 0 calc(50% - 384px);
   }
 
   .registration__header {

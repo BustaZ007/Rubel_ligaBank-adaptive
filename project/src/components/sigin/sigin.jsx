@@ -5,6 +5,8 @@ import Password from '../password/password';
 function Sigin({active, setActive}) {
 
   const [iconShow, setIconShow] = useState(false);
+  const [login,setLogin] = useState("");
+  const [password, setPassword] = useState("");
 
   const togglePasswordVisiblity = () => {
     setIconShow(iconShow ? false : true);
@@ -24,6 +26,28 @@ function Sigin({active, setActive}) {
       window.removeEventListener('keydown', handleEsc);
     };
   }, [active]);
+
+  function Clean() {
+    setActive(false);
+    setLogin("");
+    setPassword("");
+  }
+
+  function addToHistory() {
+    if(login.length > 0 && password.length > 0) {
+      const history = localStorage.getItem('history');
+      let result = [];
+      if(history) {
+        result = [...JSON.parse(history)];
+      }
+      result.push({
+        login: login,
+        password: password,
+      });
+      localStorage.setItem('history', JSON.stringify(result));
+    }
+  }
+
   return(
     <>
         {(active) ? <FocusTrap>
@@ -39,13 +63,25 @@ function Sigin({active, setActive}) {
             <button className="sigin__close" onClick={(evt) => setActive(false)}></button>
             <form className="sigin__form">
               <label htmlFor="login" className="sigin__label">Логин</label>
-              <input id="login" className="sigin__input" />
+              <input id="login" className="sigin__input"
+                onChange={(evt) => {
+                    const target = evt.target.value;
+                    setLogin(target);
+                }}
+              />
               <div className="sigin__password-wrapper">
-                <Password iconShow={iconShow} />
+                <Password iconShow={iconShow} setPassword={setPassword}/>
                 <button className="sigin__hidden" onClick={togglePasswordVisiblity}></button>
               </div>
               <div className="sigin__submit-wrapper">
-                <button className="sigin__submit">Войти</button>
+                <button className="sigin__submit"
+                type="submit"
+                onClick={(evt) => {
+                  evt.preventDefault();
+                  addToHistory();
+                  Clean();
+                  }}
+                >Войти</button>
                 <span className="sigin__forgot"><a href="#">Забыли пароль?</a></span>
               </div>
 

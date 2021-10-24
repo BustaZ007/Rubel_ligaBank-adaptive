@@ -58,7 +58,7 @@ function Banner() {
           <div className="banner__case">
             <h2 className="banner__header-2">Лига Банк</h2>
             <p className="banner__text-2">Всегда рядом</p>
-            <button className="banner__button-2"><span className="banner__button-text">Найти отделение</span></button>
+            <button className="banner__button-2"><span className="banner__button-text-2">Найти отделение</span></button>
           </div>
         </div>
       </div>

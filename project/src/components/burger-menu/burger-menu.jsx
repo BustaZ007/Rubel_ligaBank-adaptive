@@ -10,10 +10,10 @@ function BurgerMenu({modalBurgerActive, setModalBurgerActive, setModalActive}) {
   <nav className={(modalBurgerActive) ? "header__nav-active" : "header__nav"}>
     <div className="header__nav-wrapper">
       <ul className="header__list">
-        <li className="header__item">Услуги</li>
-        <li className="header__item">Рассчитать кредит</li>
-        <li className="header__item">Конвертер валют</li>
-        <li className="header__item">Контакты</li>
+        <li className="header__item"><a href="#">Услуги</a></li>
+        <li className="header__item"><a href="#">Рассчитать кредит</a></li>
+        <li className="header__item"><a href="#">Конвертер валют</a></li>
+        <li className="header__item"><a href="#">Контакты</a></li>
         <li className="header__item" onClick={() => setModalActive(true)}><span className="header__item-button">Войти в Интернет-банк</span></li>
       </ul>
     </div>

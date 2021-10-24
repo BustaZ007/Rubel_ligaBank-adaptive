@@ -34,6 +34,11 @@
   padding: 20px 15px;
 }
 
+.header__item a {
+  text-decoration: none;
+  color: var(--text-classic);
+}
+
 .header__item-button {
   position: relative;
   margin-left: 29px;
@@ -178,7 +183,7 @@
 
 @media (min-width: 1366px) {
   .header {
-    padding: 33px 98px 30px 98px;
+    padding: 32px calc(50% - 595px);
   }
 
   .header__login-text {

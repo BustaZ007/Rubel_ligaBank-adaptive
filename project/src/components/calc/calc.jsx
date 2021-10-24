@@ -25,6 +25,12 @@ function Calc() {
 
   const [applicationNumber, setApplicationNumber] = useState("");
 
+  //localStorage
+
+  const [fio, setFio] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+
   if(!localStorage.getItem("application-number")) {
     localStorage.setItem("application-number", "10");
   }
@@ -61,14 +67,14 @@ function Calc() {
     return Math.round(getCreditSumm() * getPercent()/1200/(1- Math.pow(1+getPercent()/1200,-creditTime*12)));
   }
 
-  // function validateFields() {
-  //   return(selected === 0 && counter > 1200000 && counter < 2500000) || (selected === 1 && counter > 500000 && counter < 500000);
-  // }
+  function validateFields() {
+    return(selected === 0 && counter > 1200000 && counter < 2500000) || (selected === 1 && counter > 500000 && counter < 500000);
+  }
 
   function submitCredit() {
-    // if(!validateFields()) {
-    //   return;
-    // }
+    if(!validateFields()) {
+      return;
+    }
 
     if(selected === 0) {
       if(getCreditSumm() < 500000) {
@@ -88,6 +94,33 @@ function Calc() {
         localStorage.setItem("application-number", Number(number) + 1);
       }
     }
+  }
+
+  function addToHistory(evt) {
+    evt.preventDefault();
+    if(fio.length > 0 && phone.length > 0 && email.length > 0) {
+      const result = [...JSON.parse(localStorage.getItem('history'))];
+      result.push({
+        fio: fio,
+        phone: phone,
+        email: email,
+      });
+      localStorage.setItem('history', JSON.stringify(result));
+    } else {
+      setFio(login.length === 0);
+      setPhone(password.length === 0);
+      setEmail(password.length === 0);
+    }
+  }
+
+  function addMask(number) {
+    let mask = String(number);
+    let result = "";
+    for(let i = mask.length - 3; i > 0; i-= 3) {
+      result = " " + mask.substring(i) + result;
+      mask = mask.substring(0,i);
+    }
+    return mask + result;
   }
 
   return(
@@ -150,7 +183,7 @@ function Calc() {
               <div className="calc__step-wrapper">
                 <ul className="calc__list">
                   <li className="calc__item">
-                    <h3 className="calc__step calc__steb-item">{getCreditSumm()} рублей </h3>
+                    <h3 className="calc__step calc__steb-item">{addMask(getCreditSumm())} рублей </h3>
                     <p className="calc__text-item">Сумма ипотеки</p>
                   </li>
                   <li className="calc__item">
@@ -158,11 +191,11 @@ function Calc() {
                     <p className="calc__text-item">Процентная ставка</p>
                   </li>
                   <li className="calc__item">
-                    <h3 className="calc__step calc__steb-item">{getMontlyPayment()} рублей</h3>
+                    <h3 className="calc__step calc__steb-item">{addMask(getMontlyPayment())} рублей</h3>
                     <p className="calc__text-item">Ежемесячный платеж</p>
                   </li>
                   <li className="calc__item">
-                    <h3 className="calc__step calc__steb-item">{Math.trunc(getMontlyPayment() / 45 * 100)} рублей</h3>
+                    <h3 className="calc__step calc__steb-item">{addMask(Math.trunc(getMontlyPayment() / 45 * 100))} рублей</h3>
                     <p className="calc__text-item">Необходимый доход</p>
                   </li>
                 </ul>
@@ -185,32 +218,58 @@ function Calc() {
             </li>
             <li className="registration__item">
               <span className="registration__text">Цель кредита</span>
-              <span className="registration__text-cell">Ипотека</span>
+              <span className="registration__text-cell">{(selected === 0) ? "Ипотека" : "Кредит"}</span>
             </li>
             <li className="registration__item">
               <span className="registration__text">Стоимость недвижимости</span>
-              <span className="registration__text-cell">2 000 000 рублей</span>
+              <span className="registration__text-cell">{addMask(counter)} рублей</span>
             </li>
             <li className="registration__item">
               <span className="registration__text">Первоначальный взнос</span>
-              <span className="registration__text-cell">200 000 рублей</span>
+              <span className="registration__text-cell">{addMask(initialPayment)} рублей</span>
             </li>
             <li className="registration__item">
               <span className="registration__text">Срок кредитования</span>
-              <span className="registration__text-cell">5 лет</span>
+              <span className="registration__text-cell">{creditTime} лет</span>
             </li>
           </ul>
-          <label className="visually-hidden">ФИО</label>
-          <input type="text" className="registration__name" placeholder="ФИО" />
-          <div className="registration__case">
-            <label className="visually-hidden">Телефон</label>
-            <input type="text" className="registration__phohe" placeholder="Телефон" />
-            <label className="visually-hidden">Е-mail</label>
-            <input type="text" className="registration__email" placeholder="E-mail"/>
-          </div>
-          <div className="registration__button-case">
-            <button className="registration__button" type="button" onClick={evt => setErrorMessage(<Success close={setErrorMessage}/>)}>Отправить</button>
-          </div>
+          <form>
+            <label className="visually-hidden">ФИО</label>
+            <input type="text" className="registration__name" placeholder="ФИО"
+              required="required"
+              onChange={(evt) => {
+                    const target = evt.target.value;
+                    setFio(target);
+                }}
+            />
+            <div className="registration__case">
+              <label className="visually-hidden">Телефон</label>
+              <input type="text" className="registration__phohe" placeholder="Телефон"
+                required="required"
+                onChange={(evt) => {
+                    const target = evt.target.value;
+                    setPhone(target);
+                }}
+              />
+              <label className="visually-hidden">Е-mail</label>
+              <input type="text" className="registration__email" placeholder="E-mail"
+                required="required"
+                onChange={(evt) => {
+                    const target = evt.target.value;
+                    setEmail(target);
+                }}
+              />
+            </div>
+            <div className="registration__button-case">
+              <button className="registration__button" type="submit" 
+              onClick={evt => {
+                if(fio.length > 0 && email.length > 0 && phone.length > 0) {
+                  setErrorMessage(<Success close={setErrorMessage}/>);
+                }
+                }
+              }>Отправить</button>
+            </div>
+          </form>
         </div>
       </div>
       {errorMessage}

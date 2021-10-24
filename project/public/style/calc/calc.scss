@@ -214,28 +214,19 @@
 }
 
 .calc__maternalCapital {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  opacity: 0;
+  display: none;
 }
 
-.calc__checkbox {
+.calc__checkbox  {
   position: relative;
   display: block;
   cursor: pointer;
-  padding-left: 40px;
-}
-
-.calc__maternalCapital+label {
-  display: inline-flex;
   align-items: center;
   user-select: none;
   padding-left: 25px;
 }
 
-.calc__maternalCapital+label::before {
+.calc__checkbox::before {
   content: "";
   position: absolute;
   top: -2px;
@@ -250,9 +241,6 @@
 }
 
 .calc__maternalCapital:checked+label::before {
-  position: absolute;
-  top: -2px;
-  left: 0;
   width: 16px;
   height: 16px;
   border: none;
@@ -352,7 +340,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 0 98px;
+    padding: 0 calc(50% - 585px);
   }
 
   .calc__header {

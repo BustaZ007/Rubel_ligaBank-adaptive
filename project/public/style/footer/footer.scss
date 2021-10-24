@@ -47,13 +47,13 @@
 
 @media (min-width: 1366px) {
   .footer-description {
-    padding: 54px 98px;
+    padding: 54px calc(50% - 585px);
   }
 
   .foother-description__container{
     display: grid;
-    grid-column: 1;
-    grid-row: 1/3;
+    grid-template-areas: 'a b'
+                        'c b';
   }
 
   .foother-description__case {
