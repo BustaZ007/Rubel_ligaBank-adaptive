@@ -1,10 +1,11 @@
 import React from 'react';
 import NumberFormat from 'react-number-format';
-
+import { CREDIT_TIME_MIN, CREDIT_TIME_MAX, NULL } from '../../const';
+import propTypes, { func } from 'prop-types';
 
 function CreditTime({creditTime, onChange, selected}) {
-  const min = (selected === 0) ? 5 : 1;
-  const max = (selected === 0) ? 30 : 5;
+  const min = (selected === NULL) ? CREDIT_TIME_MIN : 1;
+  const max = (selected === NULL) ? CREDIT_TIME_MAX : CREDIT_TIME_MIN;
   return(
     <>
       <label className="calc__label" htmlFor="creditTime">Срок кредитования</label>
@@ -36,6 +37,12 @@ function CreditTime({creditTime, onChange, selected}) {
       </div>
     </>
   );
+}
+
+CreditTime.propTypes = {
+  onChange: propTypes.func,
+  creditTime: propTypes.number,
+  selected: propTypes.number,
 }
 
 export default CreditTime;

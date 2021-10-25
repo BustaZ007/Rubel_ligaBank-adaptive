@@ -40,9 +40,9 @@
   }
 }
 
-@media (min-width: 1366px) {
+@media (min-width: 1024px) {
   .map {
-    padding: 0 calc(50% - 585px);
+    padding: 0 calc(50% - 490px);
     margin-bottom: 134px;
   }
 
@@ -52,6 +52,12 @@
   }
 
   .map__yandex {
-    min-width: 1170px;
+    min-width: 960px;
+  }
+}
+
+@media(min-width: 1366px) {
+  .map {
+    padding: 0 calc(50% - 585px);
   }
 }

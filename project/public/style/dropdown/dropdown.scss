@@ -59,6 +59,12 @@
   }
 }
 
+@media(min-width: 1024px) {
+  .dropdown {
+    min-width: 393px;
+  }
+}
+
 @media(min-width: 1366px) {
   .dropdown {
     min-width: 600px;

@@ -229,11 +229,10 @@
 .calc__checkbox::before {
   content: "";
   position: absolute;
-  top: -2px;
+  top: 2px;
   left: 0;
   width: 12px;
   height: 13px;
-  opacity: 0.4;
   border: 2px solid var(--text-classic);
   border-radius: 3px;
   flex-shrink: 0;
@@ -331,7 +330,7 @@
   }
 }
 
-@media (min-width: 1366px) {
+@media (min-width: 1024px) {
   .calc {
     margin-bottom: 116px;
   }
@@ -340,7 +339,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 0 calc(50% - 585px);
+    padding:  0px calc(50% - 490px);
   }
 
   .calc__header {
@@ -360,13 +359,13 @@
   }
 
   .calc__input {
-    min-width: 592px;
+    min-width: 473px;
     font-size: 18px;
     line-height: 25px;
   }
 
   .calc__offer {
-    width: 503px;
+    width: 499px;
     height: 381px;
     margin-top: 112px;
     padding: 52px 59px 56px 60px;
@@ -387,5 +386,19 @@
 
   .calc__button {
     width: 100%;
+  }
+}
+
+@media(min-width: 1366px) {
+  .calc__case {
+    padding: 0 calc(50% - 585px);
+  }
+
+  .calc__offer {
+    width: 503px;
+  }
+
+  .calc__input {
+    min-width: 592px;
   }
 }

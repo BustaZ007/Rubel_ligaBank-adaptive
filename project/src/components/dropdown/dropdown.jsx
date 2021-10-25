@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { NULL } from "../../const";
+import propTypes from 'prop-types';
 
 function Dropdown({selected, setSelected}) {
   const [isActive, setIsActive] = useState(false);
@@ -7,7 +9,7 @@ function Dropdown({selected, setSelected}) {
     <>
       <div className="dropdown">
         <div className="dropdown-btn" onClick={() => setIsActive(!isActive)}>
-          {(selected >= 0) ? options[selected] : 'Выберите цель кредита'}
+          {(selected >= NULL) ? options[selected] : 'Выберите цель кредита'}
           <span className={(isActive) ? "dropdown__icon-active" : "dropdown__icon"}>
             <img src="./image/arrow.svg"/>
           </span>
@@ -29,6 +31,11 @@ function Dropdown({selected, setSelected}) {
       </div>
     </>
   );
+}
+
+Dropdown.propTypes = {
+  selected: propTypes.number,
+  setSelected: propTypes.func,
 }
 
 export default Dropdown;

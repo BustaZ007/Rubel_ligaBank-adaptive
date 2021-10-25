@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSwipeable } from 'react-swipeable';
-import { Tab } from '../../const';
+import { ONE, Tab } from '../../const';
 import Credits from '../credits/credits';
 import Deposits from '../deposits/deposits';
 import Insurance from '../insurance/insurance';
@@ -63,13 +63,13 @@ function Information() {
       if(activeTab === Tab.SERVISES) {
         return;
       }
-      setActiveTab(tabs[tabs.indexOf(activeTab) + 1]);
+      setActiveTab(tabs[tabs.indexOf(activeTab) + ONE]);
     },
     onSwipedRight: () => {
       if(activeTab === Tab.DEPOSITS) {
         return;
       }
-      setActiveTab(tabs[tabs.indexOf(activeTab) - 1]);
+      setActiveTab(tabs[tabs.indexOf(activeTab) - ONE]);
     }
   });
 

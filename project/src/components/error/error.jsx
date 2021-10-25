@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from 'prop-types';
 
 function Error({type, close, error}) {
   useEffect(() => {
@@ -15,6 +16,7 @@ function Error({type, close, error}) {
       window.removeEventListener('keydown', handleEsc);
     };
   }, [error]);
+  
   return(
     <>
     <div className="error error-active" onClick={() => close(null)}>
@@ -27,6 +29,12 @@ function Error({type, close, error}) {
     </div>
     </>
   );
+}
+
+Error.propTypes = {
+  type: propTypes.number,
+  close: propTypes.number,
+  error: propTypes.number,
 }
 
 export default Error;

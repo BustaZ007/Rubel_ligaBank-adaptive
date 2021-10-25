@@ -65,12 +65,14 @@ function Banner() {
 
       <div className="dot">
           {banner.map((item, index) => (
-          <div key={index} className={nextSlide === index + 1 ? "dot__item" : "dot__active"}></div>
+            <div key={item.id} className={nextSlide === index + 1 ? "dot__item" : "dot__active"}></div>
           ))}
         </div>
     </section>
     </>
   );
 }
+
+
 
 export default Banner;

@@ -5,23 +5,32 @@ import Dropdown from '../dropdown/dropdown';
 import InitialPayment from '../initial-payment/initial-payment';
 import Error from '../error/error';
 import Success from '../success/success';
+import { DEFAULT_MORTGAGE, DEFAUL_CREDIT, MATERNAL_CAPITAL, MORTGAGE_MIN, MORTGAGE_MAX, 
+  AUTO_CREDIT_MAX, INITIAL_PAYMENT_PERCENT, INTEREST_RATE_MIN, INTEREST_RATE_MAX, CASKO_OR_LIFE_INCURANCE,
+  CASKO_AND_LIFE_INCURANCE, INTEREST_RATE_MIN_AUTO, INTEREST_RATE_MAX_AUTO,
+  MINIMAL_SUMM, CREDIT_TIME_MIN, NULL, AN_INTIAL_FEE_MORTGAGE, AN_INTIAL_FEE_AUTO, ONE, MONTHLY_PAYMENT,
+  PERCENT} from '../../const';
+
 
 function Calc() {
+  const STEP_TWO = 2;
+  const STEP_THREE = 3;
+
   const [selected, setSelected] = useState(-1); // 0 это ипотечное кредитование 1 авто 
-  const [counter, setCounter] = useState(1);
+  const [counter, setCounter] = useState(ONE);
   const incrementCounter = (value) => setCounter(counter + value);
   let decrement = (value) => setCounter(counter - value);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const [initialPayment, setInitialPayment] = useState(1);
+  const [initialPayment, setInitialPayment] = useState(ONE);
 
-  const [creditTime, setCreditTime] = useState(5);
+  const [creditTime, setCreditTime] = useState(CREDIT_TIME_MIN);
 
   const [maternalCapital, setMaternalCapital] = useState(true);
   const [casko, setCasko] = useState(false);
   const [insurance, setInsurance] = useState(false);
 
-  const [stepCount, setStepCount] = useState(1);
+  const [stepCount, setStepCount] = useState(ONE);
 
   const [applicationNumber, setApplicationNumber] = useState("");
 
@@ -37,38 +46,35 @@ function Calc() {
 
   function selectCreditType(type) {
     setSelected(type);
-    setCounter((type === 0) ? 2000000 : 500000);
-    setCreditTime((type === 0) ? 5 : 1);
-    setInitialPayment((type === 0) ? 2000000 * 0.1 : 500000 * 0.2);
-    setStepCount(2);
+    setCounter((type === NULL) ? DEFAULT_MORTGAGE : DEFAUL_CREDIT);
+    setCreditTime((type === NULL) ? CREDIT_TIME_MIN : ONE);
+    setInitialPayment((type === NULL) ? DEFAULT_MORTGAGE * AN_INTIAL_FEE_MORTGAGE : DEFAUL_CREDIT * AN_INTIAL_FEE_AUTO);
+    setStepCount(STEP_TWO);
   }
 
   function getCreditSumm() {
-    if(maternalCapital) {
-      return(counter - initialPayment - 470000);
-    } 
-    return (counter - initialPayment);
+    return (maternalCapital) ? counter - initialPayment - MATERNAL_CAPITAL: counter - initialPayment; 
   }
 
   function getPercent() {
-    if(selected === 0) {
-      return (initialPayment / counter < 0.15) ? 9.40 : 8.50;
+    if(selected === NULL) {
+      return (initialPayment / counter < INITIAL_PAYMENT_PERCENT) ? INTEREST_RATE_MAX : INTEREST_RATE_MIN;
     } 
     if((casko && !insurance) || (!casko && insurance)) {
-      return 8.5;
+      return CASKO_OR_LIFE_INCURANCE;
     }
     if(casko && insurance) {
-      return 3.5;
+      return CASKO_AND_LIFE_INCURANCE;
     }
-    return (counter < 2000000) ? 16 : 15;
+    return (counter < DEFAULT_MORTGAGE) ? INTEREST_RATE_MAX_AUTO : INTEREST_RATE_MIN_AUTO;
   }
 
   function getMontlyPayment() {
-    return Math.round(getCreditSumm() * getPercent()/1200/(1- Math.pow(1+getPercent()/1200,-creditTime*12)));
+    return Math.round(getCreditSumm() * getPercent()/1200/(ONE- Math.pow(1+getPercent()/1200,-creditTime*12)));
   }
 
   function validateFields() {
-    return(selected === 0 && counter > 1200000 && counter < 2500000) || (selected === 1 && counter > 500000 && counter < 500000);
+    return(selected === NULL && counter > MORTGAGE_MIN && counter < MORTGAGE_MAX) || (selected === ONE && counter > DEFAUL_CREDIT && counter < AUTO_CREDIT_MAX);
   }
 
   function submitCredit() {
@@ -76,51 +82,45 @@ function Calc() {
       return;
     }
 
-    if(selected === 0) {
-      if(getCreditSumm() < 500000) {
-        setErrorMessage(<Error error={errorMessage} close={setErrorMessage} type={0} />);
+    if(selected === NULL) {
+      if(getCreditSumm() < DEFAUL_CREDIT) {
+        setErrorMessage(<Error error={errorMessage} close={setErrorMessage} type={NULL} />);
       } else {
         setApplicationNumber(localStorage.getItem("application-number"));
-        setStepCount(3);
+        setStepCount(STEP_THREE);
         const number = localStorage.getItem("application-number");
-        localStorage.setItem("application-number", Number(number) + 1);
+        localStorage.setItem("application-number", Number(number) + ONE);
       }
     } else {
-      if(getCreditSumm() < 200000) {
-        setErrorMessage(<Error error={errorMessage} close={setErrorMessage} type={1} />);
+      if(getCreditSumm() < MINIMAL_SUMM) {
+        setErrorMessage(<Error error={errorMessage} close={setErrorMessage} type={ONE} />);
       } else {
         setApplicationNumber(localStorage.getItem("application-number"));
-        setStepCount(3);
-        localStorage.setItem("application-number", Number(number) + 1);
+        setStepCount(STEP_THREE);
+        localStorage.setItem("application-number", Number(number) + ONE);
       }
     }
   }
 
-  function addToHistory(evt) {
-    evt.preventDefault();
-    if(fio.length > 0 && phone.length > 0 && email.length > 0) {
-      const result = [...JSON.parse(localStorage.getItem('history'))];
+  function addToHistory() {
+    if(fio.length > NULL && phone.length > NULL && email.length > NULL) {
+      const history = localStorage.getItem('history');
+      let result = [];
+      if(history) {
+        result = [...JSON.parse(history)];
+      }
       result.push({
         fio: fio,
         phone: phone,
         email: email,
       });
       localStorage.setItem('history', JSON.stringify(result));
-    } else {
-      setFio(login.length === 0);
-      setPhone(password.length === 0);
-      setEmail(password.length === 0);
     }
   }
 
-  function addMask(number) {
-    let mask = String(number);
-    let result = "";
-    for(let i = mask.length - 3; i > 0; i-= 3) {
-      result = " " + mask.substring(i) + result;
-      mask = mask.substring(0,i);
-    }
-    return mask + result;
+  function addMask(number, isFloat) {
+    let formater = new Intl.NumberFormat('ru', {minimumFractionDigits: (isFloat)?2:0});
+    return formater.format(number);
   }
 
   return(
@@ -133,7 +133,7 @@ function Calc() {
             <div className="calc__wrapper">
               <h3 className="calc__step">Шаг 1. Цель кредита</h3>
               <Dropdown selected={selected} setSelected={selectCreditType} />
-              <div className={(stepCount === 1) ? "calc__step-hidden" : ""}>
+              <div className={(stepCount === ONE) ? "calc__step-hidden" : ""}>
                 <h3 className="calc__step">Шаг 2. Введите параметры кредита</h3>
                 <Display counter={counter} onChange={setCounter} decrement={decrement} selected={selected} increment={incrementCounter}/>
 
@@ -156,7 +156,7 @@ function Calc() {
                 />
                 <label className="calc__checkbox" htmlFor="maternalCapital">Использовать материнский капитал</label>
 
-                <div className={(selected === 0) ? "calc__insurance" : ""}>
+                <div className={(selected === NULL) ? "calc__insurance" : ""}>
                   <input 
                     type="checkbox" 
                     id="casko" 
@@ -165,7 +165,7 @@ function Calc() {
                   />
                   <label className="calc__checkbox" htmlFor="casko">Оформить КАСКО в нашем банке</label>
                 </div>
-                <div className={(selected === 0) ? "calc__insurance" : ""}>
+                <div className={(selected === NULL) ? "calc__insurance" : ""}>
                   <input 
                     type="checkbox" 
                     id="insuranceCheckbox" 
@@ -177,30 +177,30 @@ function Calc() {
               </div>
             </div>
           </div>
-          <div className={(stepCount === 1) ? "calc__step-hidden" : "calc__offer"}>
+          <div className={(stepCount === ONE) ? "calc__step-hidden" : "calc__offer"}>
             <div className="calc__offer-wrapper">
               <h3 className="calc__step calc__step-header">Наше предложение</h3>
               <div className="calc__step-wrapper">
                 <ul className="calc__list">
                   <li className="calc__item">
-                    <h3 className="calc__step calc__steb-item">{addMask(getCreditSumm())} рублей </h3>
+                    <h3 className="calc__step calc__steb-item">{addMask(getCreditSumm(), false)} рублей </h3>
                     <p className="calc__text-item">Сумма ипотеки</p>
                   </li>
                   <li className="calc__item">
-                    <h3 className="calc__step calc__steb-item">{getPercent()}%</h3>
+                    <h3 className="calc__step calc__steb-item">{addMask(getPercent(), true)}%</h3>
                     <p className="calc__text-item">Процентная ставка</p>
                   </li>
                   <li className="calc__item">
-                    <h3 className="calc__step calc__steb-item">{addMask(getMontlyPayment())} рублей</h3>
+                    <h3 className="calc__step calc__steb-item">{addMask(getMontlyPayment(), false)} рублей</h3>
                     <p className="calc__text-item">Ежемесячный платеж</p>
                   </li>
                   <li className="calc__item">
-                    <h3 className="calc__step calc__steb-item">{addMask(Math.trunc(getMontlyPayment() / 45 * 100))} рублей</h3>
+                    <h3 className="calc__step calc__steb-item">{addMask(Math.trunc(getMontlyPayment() / MONTHLY_PAYMENT * PERCENT),false)} рублей</h3>
                     <p className="calc__text-item">Необходимый доход</p>
                   </li>
                 </ul>
               </div>
-              <button className="calc__button" onClick={(evt) => {
+              <button className="calc__button" type="submit" onClick={(evt) => {
                 evt.preventDefault();
                 submitCredit();
               }}>Оформить заявку</button>
@@ -208,7 +208,7 @@ function Calc() {
           </div>
         </div>
       </form>
-      <div className={(stepCount === 1 || stepCount === 2) ? "calc__step-hidden" : "registration"}>
+      <div className={(stepCount === ONE || stepCount === STEP_TWO) ? "calc__step-hidden" : "registration"}>
         <div className="registration__wrapper">
           <h3 className="registration__header">Шаг 3. Оформление заявки</h3>
           <ul className="registration__list">
@@ -218,15 +218,15 @@ function Calc() {
             </li>
             <li className="registration__item">
               <span className="registration__text">Цель кредита</span>
-              <span className="registration__text-cell">{(selected === 0) ? "Ипотека" : "Кредит"}</span>
+              <span className="registration__text-cell">{(selected === NULL) ? "Ипотека" : "Кредит"}</span>
             </li>
             <li className="registration__item">
               <span className="registration__text">Стоимость недвижимости</span>
-              <span className="registration__text-cell">{addMask(counter)} рублей</span>
+              <span className="registration__text-cell">{addMask(counter, false)} рублей</span>
             </li>
             <li className="registration__item">
               <span className="registration__text">Первоначальный взнос</span>
-              <span className="registration__text-cell">{addMask(initialPayment)} рублей</span>
+              <span className="registration__text-cell">{addMask(initialPayment, false)} рублей</span>
             </li>
             <li className="registration__item">
               <span className="registration__text">Срок кредитования</span>
@@ -263,9 +263,11 @@ function Calc() {
             <div className="registration__button-case">
               <button className="registration__button" type="submit" 
               onClick={evt => {
-                if(fio.length > 0 && email.length > 0 && phone.length > 0) {
+                evt.preventDefault();
+                if(fio.length > NULL && email.length > NULL && phone.length > NULL) {
                   setErrorMessage(<Success error={errorMessage} close={setErrorMessage}/>);
                 }
+                addToHistory();
                 }
               }>Отправить</button>
             </div>
@@ -277,5 +279,7 @@ function Calc() {
     </>
   );
 }
+
+
 
 export default Calc;

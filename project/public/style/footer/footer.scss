@@ -45,9 +45,9 @@
   }
 }
 
-@media (min-width: 1366px) {
+@media (min-width: 1024px) {
   .footer-description {
-    padding: 54px calc(50% - 585px);
+    padding: 54px calc(50% - 480px);
   }
 
   .foother-description__container{
@@ -72,5 +72,11 @@
 
   .adress__img {
     width: 148px;
+  }
+}
+
+@media(min-width: 1366px) {
+  .footer-description {
+    padding: 54px calc(50% - 585px);
   }
 }

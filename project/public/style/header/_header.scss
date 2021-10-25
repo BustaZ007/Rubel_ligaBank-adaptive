@@ -181,9 +181,9 @@
   }
 }
 
-@media (min-width: 1366px) {
+@media (min-width: 1024px) {
   .header {
-    padding: 32px calc(50% - 595px);
+    padding: 32px calc(50% - 495px);
   }
 
   .header__login-text {
@@ -210,6 +210,16 @@
 
   .header__login {
     top: 35px;
+    right: 208px;
+  }
+}
+
+@media(min-width: 1366px) {
+  .header {
+    padding: 32px calc(50% - 580px);
+  }
+
+  .header__login {
     right: 281px;
   }
 }

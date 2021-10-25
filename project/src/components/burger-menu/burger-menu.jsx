@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
+import propTypes from 'prop-types';
 
-function BurgerMenu({modalBurgerActive, setModalBurgerActive, setModalActive}) {
+function BurgerMenu({modalBurgerActive, setModalActive}) {
   useEffect(() => {
     const body = document.querySelector('body');
     body.style.overflow = modalBurgerActive ? 'hidden' : 'auto';
@@ -20,6 +21,11 @@ function BurgerMenu({modalBurgerActive, setModalBurgerActive, setModalActive}) {
   </nav>
   </>
   );
+}
+
+BurgerMenu.propTypes = {
+  modalBurgerActive: propTypes.bool,
+  setModalActive: propTypes.func,
 }
 
 export default BurgerMenu;

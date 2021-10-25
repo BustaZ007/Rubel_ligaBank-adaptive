@@ -1,7 +1,7 @@
 import React from "react";
+import propTypes from 'prop-types';
 
 function Password({iconShow, setPassword}) {
-  console.log(iconShow)
   return(
     <>
       <label htmlFor="password" className="sigin__label">Пароль</label>
@@ -13,6 +13,11 @@ function Password({iconShow, setPassword}) {
       />
     </>
   );
+}
+
+Password.propTypes = {
+  iconShow: propTypes.bool,
+  setPassword: propTypes.func,
 }
 
 export default Password;

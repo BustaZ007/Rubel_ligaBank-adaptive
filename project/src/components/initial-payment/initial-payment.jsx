@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import NumberFormat from 'react-number-format';
+import { MATERNAL_CAPITAL, DEFAUL_CREDIT, MINIMAL_SUMM,NULL,AN_INTIAL_FEE_AUTO,AN_INTIAL_FEE_MORTGAGE,
+  ONE,PERCENT} from '../../const';
+import propTypes from 'prop-types';
 
 function useForceUpdate() {
-  const [value, setValue] = useState(0);
-  return () => setValue(value => value + 1);
+  const [value, setValue] = useState(NULL);
+  return () => setValue(value => value + ONE);
 }
 
 
@@ -11,9 +14,9 @@ function InitialPayment({initialPayment, counter, onChange, maternalCapital, sel
   const forceUpdate = useForceUpdate();
 
   function Check() {
-    const minCredit = (selected === 0) ? 500000 : 200000;
+    const minCredit = (selected === NULL) ? DEFAUL_CREDIT : MINIMAL_SUMM;
     if(maternalCapital) {
-      return(counter - initialPayment - 470000 < minCredit);
+      return(counter - initialPayment - MATERNAL_CAPITAL < minCredit);
     } else {
       return(counter - initialPayment < minCredit);
     }
@@ -29,7 +32,7 @@ function InitialPayment({initialPayment, counter, onChange, maternalCapital, sel
       type="text" 
       id="contribution"
       onValueChange={evt => {
-        const minPercent = (selected === 0) ? 0.1 : 0.2;
+        const minPercent = (selected === NULL) ? AN_INTIAL_FEE_MORTGAGE : AN_INTIAL_FEE_AUTO;
         if(evt.floatValue < counter * minPercent && initialPayment === counter * minPercent) {
           forceUpdate();
         }
@@ -39,17 +42,25 @@ function InitialPayment({initialPayment, counter, onChange, maternalCapital, sel
     <input className="calc__range"
      type="range"
      id="rangeInitialPayment"
-      min={(selected === 0) ? "10" : "20"} 
+      min={(selected === NULL) ? "10" : "20"} 
       max="100" 
-      value={initialPayment / counter * 100} 
+      value={initialPayment / counter * PERCENT} 
       step="5"
       onChange={(evt) => {
-        onChange(counter / 100 * evt.target.valueAsNumber);
+        onChange(counter / PERCENT * evt.target.valueAsNumber);
         }}
     />
-    <p className="calc__text">{(selected === 0) ? "10%" : "20%"}</p>
+    <p className="calc__text">{(selected === NULL) ? "10%" : "20%"}</p>
     </>
   );
+}
+
+InitialPayment.propTypes = {
+  selected: propTypes.number,
+  maternalCapital: propTypes.bool,
+  onChange: propTypes.func,
+  counter: propTypes.number,
+  initialPayment: propTypes.number,
 }
 
 export default InitialPayment;

@@ -1,22 +1,24 @@
 import React from 'react';
 import NumberFormat from 'react-number-format';
+import { MORTGAGE_MIN, MORTGAGE_MAX, DEFAUL_CREDIT, AUTO_CREDIT_MAX, COUNTER_MORTAGE, COUNTER_AUTO, NULL,ONE} from '../../const';
+import propTypes from 'prop-types';
 
 function Display({counter, decrement, onChange, increment, selected}) {
   function Check() {
-    if(selected === 0) {
-      return(counter < 1200000 || counter > 25000000);
+    if(selected === NULL) {
+      return(counter < MORTGAGE_MIN || counter > MORTGAGE_MAX);
     } 
-    return(counter < 500000 || counter > 5000000);
+    return(counter < DEFAUL_CREDIT || counter > AUTO_CREDIT_MAX);
   }
   return(
     <>
-    <label className="calc__label" htmlFor="sum">{`Стоимость ${(selected === 0) ? "недвижимости" : "автомобиля"}`}</label>
+    <label className="calc__label" htmlFor="sum">{`Стоимость ${(selected === NULL) ? "недвижимости" : "автомобиля"}`}</label>
       <div className="calc__score">
         <button className="calc__minus" type="button" onClick={() => {
-          if((selected === 0 && counter <= 100000) || (selected === 1 && counter <= 50000)) {
+          if((selected === NULL && counter <= COUNTER_MORTAGE) || (selected === ONE && counter <= COUNTER_AUTO)) {
             return;
           }
-          decrement((selected === 0) ? 100000 : 50000)}}
+          decrement((selected === NULL) ? COUNTER_MORTAGE : COUNTER_AUTO)}}
         ></button>
         <NumberFormat 
           className={`calc__input calc__input-score  ${(Check()) ? "calc__input-score-error" : ""}`}
@@ -27,11 +29,19 @@ function Display({counter, decrement, onChange, increment, selected}) {
           onChange={evt => {
             onChange(Number(evt.target.value.substr(0, evt.target.value.length - 7).split(" ").join("")))}}
         />
-        <button className="calc__plus" type="button" onClick={()=> increment((selected === 0) ? 100000 : 50000)}></button>
+        <button className="calc__plus" type="button" onClick={()=> increment((selected === NULL) ? COUNTER_MORTAGE : COUNTER_AUTO)}></button>
       </div>
-      <p className="calc__text">{(selected === 0) ? "От 1 200 000  до 25 000 000 рублей" : "От 500 000  до 5 000 000 рублей"}</p>
+      <p className="calc__text">{(selected === NULL) ? "От 1 200 000  до 25 000 000 рублей" : "От 500 000  до 5 000 000 рублей"}</p>
     </>
   ); 
+}
+
+Display.propTypes = {
+  counter: propTypes.number,
+  decrement: propTypes.func,
+  onChange: propTypes.func,
+  increment: propTypes.func,
+  selected: propTypes.number,
 }
 
 export default Display;

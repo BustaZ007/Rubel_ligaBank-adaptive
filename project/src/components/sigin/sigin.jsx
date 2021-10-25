@@ -1,6 +1,8 @@
 import FocusTrap from 'focus-trap-react';
 import React, { useEffect, useState } from 'react';
+import { NULL } from '../../const';
 import Password from '../password/password';
+import propTypes from 'prop-types';
 
 function Sigin({active, setActive}) {
 
@@ -34,7 +36,7 @@ function Sigin({active, setActive}) {
   }
 
   function addToHistory() {
-    if(login.length > 0 && password.length > 0) {
+    if(login.length > NULL && password.length > NULL) {
       const history = localStorage.getItem('history');
       let result = [];
       if(history) {
@@ -91,6 +93,11 @@ function Sigin({active, setActive}) {
         </FocusTrap> : null}
       </>
   );
+}
+
+Sigin.propTypes = {
+  active: propTypes.bool,
+  setActive: propTypes.func,
 }
 
 export default Sigin;

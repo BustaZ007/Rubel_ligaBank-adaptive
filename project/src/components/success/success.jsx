@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import propTypes from 'prop-types';
 
 function Success({close, error}) {
   useEffect(() => {
@@ -15,6 +16,7 @@ function Success({close, error}) {
       window.removeEventListener('keydown', handleEsc);
     };
   }, [error]);
+
   return(
     <>
     <div className="success success-active" onClick={() => close(null)}>
@@ -26,6 +28,11 @@ function Success({close, error}) {
     </div>
     </>
   );
+}
+
+Success.propTypes = {
+  close: propTypes.func,
+  error: propTypes.number,
 }
 
 export default Success;

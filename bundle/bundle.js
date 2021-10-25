@@ -475,7 +475,7 @@ function Banner() {
         children: banner.map(function (item, index) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             className: nextSlide === index + 1 ? "dot__item" : "dot__active"
-          }, index);
+          }, item.id);
         })
       })]
     })
@@ -498,7 +498,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -506,49 +509,48 @@ __webpack_require__.r(__webpack_exports__);
 
 function BurgerMenu(_ref) {
   var modalBurgerActive = _ref.modalBurgerActive,
-      setModalBurgerActive = _ref.setModalBurgerActive,
       setModalActive = _ref.setModalActive;
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var body = document.querySelector('body');
     body.style.overflow = modalBurgerActive ? 'hidden' : 'auto';
   }, [modalBurgerActive]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("nav", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("nav", {
       className: modalBurgerActive ? "header__nav-active" : "header__nav",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "header__nav-wrapper",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
           className: "header__list",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
             className: "header__item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
               href: "#",
               children: "\u0423\u0441\u043B\u0443\u0433\u0438"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
             className: "header__item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
               href: "#",
               children: "\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C \u043A\u0440\u0435\u0434\u0438\u0442"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
             className: "header__item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
               href: "#",
               children: "\u041A\u043E\u043D\u0432\u0435\u0440\u0442\u0435\u0440 \u0432\u0430\u043B\u044E\u0442"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
             className: "header__item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
               href: "#",
               children: "\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
             className: "header__item",
             onClick: function onClick() {
               return setModalActive(true);
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
               className: "header__item-button",
               children: "\u0412\u043E\u0439\u0442\u0438 \u0432 \u0418\u043D\u0442\u0435\u0440\u043D\u0435\u0442-\u0431\u0430\u043D\u043A"
             })
@@ -559,6 +561,10 @@ function BurgerMenu(_ref) {
   });
 }
 
+BurgerMenu.propTypes = {
+  modalBurgerActive: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool),
+  setModalActive: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func)
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BurgerMenu);
 
 /***/ }),
@@ -581,7 +587,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _initial_payment_initial_payment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../initial-payment/initial-payment */ "./project/src/components/initial-payment/initial-payment.jsx");
 /* harmony import */ var _error_error__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../error/error */ "./project/src/components/error/error.jsx");
 /* harmony import */ var _success_success__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../success/success */ "./project/src/components/success/success.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../const */ "./project/src/const.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -613,14 +620,18 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function Calc() {
+  var STEP_TWO = 2;
+  var STEP_THREE = 3;
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(-1),
       _useState2 = _slicedToArray(_useState, 2),
       selected = _useState2[0],
       setSelected = _useState2[1]; // 0 это ипотечное кредитование 1 авто 
 
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(_const__WEBPACK_IMPORTED_MODULE_7__.ONE),
       _useState4 = _slicedToArray(_useState3, 2),
       counter = _useState4[0],
       setCounter = _useState4[1];
@@ -638,12 +649,12 @@ function Calc() {
       errorMessage = _useState6[0],
       setErrorMessage = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(_const__WEBPACK_IMPORTED_MODULE_7__.ONE),
       _useState8 = _slicedToArray(_useState7, 2),
       initialPayment = _useState8[0],
       setInitialPayment = _useState8[1];
 
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(5),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(_const__WEBPACK_IMPORTED_MODULE_7__.CREDIT_TIME_MIN),
       _useState10 = _slicedToArray(_useState9, 2),
       creditTime = _useState10[0],
       setCreditTime = _useState10[1];
@@ -663,7 +674,7 @@ function Calc() {
       insurance = _useState16[0],
       setInsurance = _useState16[1];
 
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(_const__WEBPACK_IMPORTED_MODULE_7__.ONE),
       _useState18 = _slicedToArray(_useState17, 2),
       stepCount = _useState18[0],
       setStepCount = _useState18[1];
@@ -695,42 +706,38 @@ function Calc() {
 
   function selectCreditType(type) {
     setSelected(type);
-    setCounter(type === 0 ? 2000000 : 500000);
-    setCreditTime(type === 0 ? 5 : 1);
-    setInitialPayment(type === 0 ? 2000000 * 0.1 : 500000 * 0.2);
-    setStepCount(2);
+    setCounter(type === _const__WEBPACK_IMPORTED_MODULE_7__.NULL ? _const__WEBPACK_IMPORTED_MODULE_7__.DEFAULT_MORTGAGE : _const__WEBPACK_IMPORTED_MODULE_7__.DEFAUL_CREDIT);
+    setCreditTime(type === _const__WEBPACK_IMPORTED_MODULE_7__.NULL ? _const__WEBPACK_IMPORTED_MODULE_7__.CREDIT_TIME_MIN : _const__WEBPACK_IMPORTED_MODULE_7__.ONE);
+    setInitialPayment(type === _const__WEBPACK_IMPORTED_MODULE_7__.NULL ? _const__WEBPACK_IMPORTED_MODULE_7__.DEFAULT_MORTGAGE * _const__WEBPACK_IMPORTED_MODULE_7__.AN_INTIAL_FEE_MORTGAGE : _const__WEBPACK_IMPORTED_MODULE_7__.DEFAUL_CREDIT * _const__WEBPACK_IMPORTED_MODULE_7__.AN_INTIAL_FEE_AUTO);
+    setStepCount(STEP_TWO);
   }
 
   function getCreditSumm() {
-    if (maternalCapital) {
-      return counter - initialPayment - 470000;
-    }
-
-    return counter - initialPayment;
+    return maternalCapital ? counter - initialPayment - _const__WEBPACK_IMPORTED_MODULE_7__.MATERNAL_CAPITAL : counter - initialPayment;
   }
 
   function getPercent() {
-    if (selected === 0) {
-      return initialPayment / counter < 0.15 ? 9.40 : 8.50;
+    if (selected === _const__WEBPACK_IMPORTED_MODULE_7__.NULL) {
+      return initialPayment / counter < _const__WEBPACK_IMPORTED_MODULE_7__.INITIAL_PAYMENT_PERCENT ? _const__WEBPACK_IMPORTED_MODULE_7__.INTEREST_RATE_MAX : _const__WEBPACK_IMPORTED_MODULE_7__.INTEREST_RATE_MIN;
     }
 
     if (casko && !insurance || !casko && insurance) {
-      return 8.5;
+      return _const__WEBPACK_IMPORTED_MODULE_7__.CASKO_OR_LIFE_INCURANCE;
     }
 
     if (casko && insurance) {
-      return 3.5;
+      return _const__WEBPACK_IMPORTED_MODULE_7__.CASKO_AND_LIFE_INCURANCE;
     }
 
-    return counter < 2000000 ? 16 : 15;
+    return counter < _const__WEBPACK_IMPORTED_MODULE_7__.DEFAULT_MORTGAGE ? _const__WEBPACK_IMPORTED_MODULE_7__.INTEREST_RATE_MAX_AUTO : _const__WEBPACK_IMPORTED_MODULE_7__.INTEREST_RATE_MIN_AUTO;
   }
 
   function getMontlyPayment() {
-    return Math.round(getCreditSumm() * getPercent() / 1200 / (1 - Math.pow(1 + getPercent() / 1200, -creditTime * 12)));
+    return Math.round(getCreditSumm() * getPercent() / 1200 / (_const__WEBPACK_IMPORTED_MODULE_7__.ONE - Math.pow(1 + getPercent() / 1200, -creditTime * 12)));
   }
 
   function validateFields() {
-    return selected === 0 && counter > 1200000 && counter < 2500000 || selected === 1 && counter > 500000 && counter < 500000;
+    return selected === _const__WEBPACK_IMPORTED_MODULE_7__.NULL && counter > _const__WEBPACK_IMPORTED_MODULE_7__.MORTGAGE_MIN && counter < _const__WEBPACK_IMPORTED_MODULE_7__.MORTGAGE_MAX || selected === _const__WEBPACK_IMPORTED_MODULE_7__.ONE && counter > _const__WEBPACK_IMPORTED_MODULE_7__.DEFAUL_CREDIT && counter < _const__WEBPACK_IMPORTED_MODULE_7__.AUTO_CREDIT_MAX;
   }
 
   function submitCredit() {
@@ -738,39 +745,44 @@ function Calc() {
       return;
     }
 
-    if (selected === 0) {
-      if (getCreditSumm() < 500000) {
-        setErrorMessage( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_error_error__WEBPACK_IMPORTED_MODULE_5__.default, {
+    if (selected === _const__WEBPACK_IMPORTED_MODULE_7__.NULL) {
+      if (getCreditSumm() < _const__WEBPACK_IMPORTED_MODULE_7__.DEFAUL_CREDIT) {
+        setErrorMessage( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_error_error__WEBPACK_IMPORTED_MODULE_5__.default, {
+          error: errorMessage,
           close: setErrorMessage,
-          type: 0
+          type: _const__WEBPACK_IMPORTED_MODULE_7__.NULL
         }));
       } else {
         setApplicationNumber(localStorage.getItem("application-number"));
-        setStepCount(3);
+        setStepCount(STEP_THREE);
 
         var _number = localStorage.getItem("application-number");
 
-        localStorage.setItem("application-number", Number(_number) + 1);
+        localStorage.setItem("application-number", Number(_number) + _const__WEBPACK_IMPORTED_MODULE_7__.ONE);
       }
     } else {
-      if (getCreditSumm() < 200000) {
-        setErrorMessage( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_error_error__WEBPACK_IMPORTED_MODULE_5__.default, {
+      if (getCreditSumm() < _const__WEBPACK_IMPORTED_MODULE_7__.MINIMAL_SUMM) {
+        setErrorMessage( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_error_error__WEBPACK_IMPORTED_MODULE_5__.default, {
+          error: errorMessage,
           close: setErrorMessage,
-          type: 1
+          type: _const__WEBPACK_IMPORTED_MODULE_7__.ONE
         }));
       } else {
         setApplicationNumber(localStorage.getItem("application-number"));
-        setStepCount(3);
-        localStorage.setItem("application-number", Number(number) + 1);
+        setStepCount(STEP_THREE);
+        localStorage.setItem("application-number", Number(number) + _const__WEBPACK_IMPORTED_MODULE_7__.ONE);
       }
     }
   }
 
-  function addToHistory(evt) {
-    evt.preventDefault();
+  function addToHistory() {
+    if (fio.length > _const__WEBPACK_IMPORTED_MODULE_7__.NULL && phone.length > _const__WEBPACK_IMPORTED_MODULE_7__.NULL && email.length > _const__WEBPACK_IMPORTED_MODULE_7__.NULL) {
+      var history = localStorage.getItem('history');
+      var result = [];
 
-    if (fio.length > 0 && phone.length > 0 && email.length > 0) {
-      var result = _toConsumableArray(JSON.parse(localStorage.getItem('history')));
+      if (history) {
+        result = _toConsumableArray(JSON.parse(history));
+      }
 
       result.push({
         fio: fio,
@@ -778,66 +790,57 @@ function Calc() {
         email: email
       });
       localStorage.setItem('history', JSON.stringify(result));
-    } else {
-      setFio(login.length === 0);
-      setPhone(password.length === 0);
-      setEmail(password.length === 0);
     }
   }
 
-  function addMask(number) {
-    var mask = String(number);
-    var result = "";
-
-    for (var i = mask.length - 3; i > 0; i -= 3) {
-      result = " " + mask.substring(i) + result;
-      mask = mask.substring(0, i);
-    }
-
-    return mask + result;
+  function addMask(number, isFloat) {
+    var formater = new Intl.NumberFormat('ru', {
+      minimumFractionDigits: isFloat ? 2 : 0
+    });
+    return formater.format(number);
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("section", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("section", {
       className: "calc",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("form", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("form", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "calc__case",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
             className: "calc__container",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h2", {
               className: "calc__header",
               children: "\u041A\u0440\u0435\u0434\u0438\u0442\u043D\u044B\u0439 \u043A\u0430\u043B\u044C\u043A\u0443\u043B\u044F\u0442\u043E\u0440"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "calc__wrapper",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
                 className: "calc__step",
                 children: "\u0428\u0430\u0433 1. \u0426\u0435\u043B\u044C \u043A\u0440\u0435\u0434\u0438\u0442\u0430"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_3__.default, {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_dropdown_dropdown__WEBPACK_IMPORTED_MODULE_3__.default, {
                 selected: selected,
                 setSelected: selectCreditType
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                className: stepCount === 1 ? "calc__step-hidden" : "",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                className: stepCount === _const__WEBPACK_IMPORTED_MODULE_7__.ONE ? "calc__step-hidden" : "",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
                   className: "calc__step",
                   children: "\u0428\u0430\u0433 2. \u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B \u043A\u0440\u0435\u0434\u0438\u0442\u0430"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_display_display__WEBPACK_IMPORTED_MODULE_2__.default, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_display_display__WEBPACK_IMPORTED_MODULE_2__.default, {
                   counter: counter,
                   onChange: setCounter,
                   decrement: decrement,
                   selected: selected,
                   increment: incrementCounter
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_initial_payment_initial_payment__WEBPACK_IMPORTED_MODULE_4__.default, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_initial_payment_initial_payment__WEBPACK_IMPORTED_MODULE_4__.default, {
                   initialPayment: initialPayment,
                   counter: counter,
                   onChange: setInitialPayment,
                   maternalCapital: maternalCapital,
                   selected: selected
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_credit_time_credit_time__WEBPACK_IMPORTED_MODULE_1__.default, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_credit_time_credit_time__WEBPACK_IMPORTED_MODULE_1__.default, {
                   creditTime: creditTime,
                   onChange: setCreditTime,
                   selected: selected
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
                   className: "calc__maternalCapital",
                   type: "checkbox",
                   id: "maternalCapital",
@@ -845,34 +848,34 @@ function Calc() {
                   onChange: function onChange(evt) {
                     return setMaternalCapital(evt.target.checked);
                   }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
                   className: "calc__checkbox",
                   htmlFor: "maternalCapital",
                   children: "\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u043C\u0430\u0442\u0435\u0440\u0438\u043D\u0441\u043A\u0438\u0439 \u043A\u0430\u043F\u0438\u0442\u0430\u043B"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                  className: selected === 0 ? "calc__insurance" : "",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                  className: selected === _const__WEBPACK_IMPORTED_MODULE_7__.NULL ? "calc__insurance" : "",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
                     type: "checkbox",
                     id: "casko",
                     checked: casko,
                     onChange: function onChange(evt) {
                       return setCasko(evt.target.checked);
                     }
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
                     className: "calc__checkbox",
                     htmlFor: "casko",
                     children: "\u041E\u0444\u043E\u0440\u043C\u0438\u0442\u044C \u041A\u0410\u0421\u041A\u041E \u0432 \u043D\u0430\u0448\u0435\u043C \u0431\u0430\u043D\u043A\u0435"
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                  className: selected === 0 ? "calc__insurance" : "",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                  className: selected === _const__WEBPACK_IMPORTED_MODULE_7__.NULL ? "calc__insurance" : "",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
                     type: "checkbox",
                     id: "insuranceCheckbox",
                     checked: insurance,
                     onChange: function onChange(evt) {
                       return setInsurance(evt.target.checked);
                     }
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
                     className: "calc__checkbox",
                     htmlFor: "insuranceCheckbox",
                     children: "\u041E\u0444\u043E\u0440\u043C\u0438\u0442\u044C \u0421\u0442\u0440\u0430\u0445\u043E\u0432\u0430\u043D\u0438\u0435 \u0436\u0438\u0437\u043D\u0438 \u0432 \u043D\u0430\u0448\u0435\u043C \u0431\u0430\u043D\u043A\u0435"
@@ -880,57 +883,58 @@ function Calc() {
                 })]
               })]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-            className: stepCount === 1 ? "calc__step-hidden" : "calc__offer",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+            className: stepCount === _const__WEBPACK_IMPORTED_MODULE_7__.ONE ? "calc__step-hidden" : "calc__offer",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "calc__offer-wrapper",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
                 className: "calc__step calc__step-header",
                 children: "\u041D\u0430\u0448\u0435 \u043F\u0440\u0435\u0434\u043B\u043E\u0436\u0435\u043D\u0438\u0435"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "calc__step-wrapper",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("ul", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("ul", {
                   className: "calc__list",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("li", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("li", {
                     className: "calc__item",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("h3", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("h3", {
                       className: "calc__step calc__steb-item",
-                      children: [addMask(getCreditSumm()), " \u0440\u0443\u0431\u043B\u0435\u0439 "]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+                      children: [addMask(getCreditSumm(), false), " \u0440\u0443\u0431\u043B\u0435\u0439 "]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
                       className: "calc__text-item",
                       children: "\u0421\u0443\u043C\u043C\u0430 \u0438\u043F\u043E\u0442\u0435\u043A\u0438"
                     })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("li", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("li", {
                     className: "calc__item",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("h3", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("h3", {
                       className: "calc__step calc__steb-item",
-                      children: [getPercent(), "%"]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+                      children: [addMask(getPercent(), true), "%"]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
                       className: "calc__text-item",
                       children: "\u041F\u0440\u043E\u0446\u0435\u043D\u0442\u043D\u0430\u044F \u0441\u0442\u0430\u0432\u043A\u0430"
                     })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("li", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("li", {
                     className: "calc__item",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("h3", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("h3", {
                       className: "calc__step calc__steb-item",
-                      children: [addMask(getMontlyPayment()), " \u0440\u0443\u0431\u043B\u0435\u0439"]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+                      children: [addMask(getMontlyPayment(), false), " \u0440\u0443\u0431\u043B\u0435\u0439"]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
                       className: "calc__text-item",
                       children: "\u0415\u0436\u0435\u043C\u0435\u0441\u044F\u0447\u043D\u044B\u0439 \u043F\u043B\u0430\u0442\u0435\u0436"
                     })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("li", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("li", {
                     className: "calc__item",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("h3", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("h3", {
                       className: "calc__step calc__steb-item",
-                      children: [addMask(Math.trunc(getMontlyPayment() / 45 * 100)), " \u0440\u0443\u0431\u043B\u0435\u0439"]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+                      children: [addMask(Math.trunc(getMontlyPayment() / _const__WEBPACK_IMPORTED_MODULE_7__.MONTHLY_PAYMENT * _const__WEBPACK_IMPORTED_MODULE_7__.PERCENT), false), " \u0440\u0443\u0431\u043B\u0435\u0439"]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
                       className: "calc__text-item",
                       children: "\u041D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u044B\u0439 \u0434\u043E\u0445\u043E\u0434"
                     })]
                   })]
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                 className: "calc__button",
+                type: "submit",
                 onClick: function onClick(evt) {
                   evt.preventDefault();
                   submitCredit();
@@ -940,66 +944,66 @@ function Calc() {
             })
           })]
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-        className: stepCount === 1 || stepCount === 2 ? "calc__step-hidden" : "registration",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        className: stepCount === _const__WEBPACK_IMPORTED_MODULE_7__.ONE || stepCount === STEP_TWO ? "calc__step-hidden" : "registration",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "registration__wrapper",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
             className: "registration__header",
             children: "\u0428\u0430\u0433 3. \u041E\u0444\u043E\u0440\u043C\u043B\u0435\u043D\u0438\u0435 \u0437\u0430\u044F\u0432\u043A\u0438"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("ul", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("ul", {
             className: "registration__list",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("li", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("li", {
               className: "registration__item",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                 className: "registration__text",
                 children: "\u041D\u043E\u043C\u0435\u0440 \u0437\u0430\u044F\u0432\u043A\u0438"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
                 className: "registration__text-cell",
                 children: ["\u2116 00", applicationNumber]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("li", {
               className: "registration__item",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                 className: "registration__text",
                 children: "\u0426\u0435\u043B\u044C \u043A\u0440\u0435\u0434\u0438\u0442\u0430"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                 className: "registration__text-cell",
-                children: selected === 0 ? "Ипотека" : "Кредит"
+                children: selected === _const__WEBPACK_IMPORTED_MODULE_7__.NULL ? "Ипотека" : "Кредит"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("li", {
               className: "registration__item",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                 className: "registration__text",
                 children: "\u0421\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C \u043D\u0435\u0434\u0432\u0438\u0436\u0438\u043C\u043E\u0441\u0442\u0438"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
                 className: "registration__text-cell",
-                children: [addMask(counter), " \u0440\u0443\u0431\u043B\u0435\u0439"]
+                children: [addMask(counter, false), " \u0440\u0443\u0431\u043B\u0435\u0439"]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("li", {
               className: "registration__item",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                 className: "registration__text",
                 children: "\u041F\u0435\u0440\u0432\u043E\u043D\u0430\u0447\u0430\u043B\u044C\u043D\u044B\u0439 \u0432\u0437\u043D\u043E\u0441"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
                 className: "registration__text-cell",
-                children: [addMask(initialPayment), " \u0440\u0443\u0431\u043B\u0435\u0439"]
+                children: [addMask(initialPayment, false), " \u0440\u0443\u0431\u043B\u0435\u0439"]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("li", {
               className: "registration__item",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                 className: "registration__text",
                 children: "\u0421\u0440\u043E\u043A \u043A\u0440\u0435\u0434\u0438\u0442\u043E\u0432\u0430\u043D\u0438\u044F"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
                 className: "registration__text-cell",
                 children: [creditTime, " \u043B\u0435\u0442"]
               })]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("form", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
               className: "visually-hidden",
               children: "\u0424\u0418\u041E"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
               type: "text",
               className: "registration__name",
               placeholder: "\u0424\u0418\u041E",
@@ -1008,12 +1012,12 @@ function Calc() {
                 var target = evt.target.value;
                 setFio(target);
               }
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "registration__case",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
                 className: "visually-hidden",
                 children: "\u0422\u0435\u043B\u0435\u0444\u043E\u043D"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
                 type: "text",
                 className: "registration__phohe",
                 placeholder: "\u0422\u0435\u043B\u0435\u0444\u043E\u043D",
@@ -1022,10 +1026,10 @@ function Calc() {
                   var target = evt.target.value;
                   setPhone(target);
                 }
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
                 className: "visually-hidden",
                 children: "\u0415-mail"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
                 type: "text",
                 className: "registration__email",
                 placeholder: "E-mail",
@@ -1035,17 +1039,22 @@ function Calc() {
                   setEmail(target);
                 }
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
               className: "registration__button-case",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                 className: "registration__button",
                 type: "submit",
                 onClick: function onClick(evt) {
-                  if (fio.length > 0 && email.length > 0 && phone.length > 0) {
-                    setErrorMessage( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_success_success__WEBPACK_IMPORTED_MODULE_6__.default, {
+                  evt.preventDefault();
+
+                  if (fio.length > _const__WEBPACK_IMPORTED_MODULE_7__.NULL && email.length > _const__WEBPACK_IMPORTED_MODULE_7__.NULL && phone.length > _const__WEBPACK_IMPORTED_MODULE_7__.NULL) {
+                    setErrorMessage( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_success_success__WEBPACK_IMPORTED_MODULE_6__.default, {
+                      error: errorMessage,
                       close: setErrorMessage
                     }));
                   }
+
+                  addToHistory();
                 },
                 children: "\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C"
               })
@@ -1074,7 +1083,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_number_format__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-number-format */ "./node_modules/react-number-format/dist/react-number-format.es.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../const */ "./project/src/const.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 
@@ -1085,14 +1099,14 @@ function CreditTime(_ref) {
   var creditTime = _ref.creditTime,
       _onChange = _ref.onChange,
       selected = _ref.selected;
-  var min = selected === 0 ? 5 : 1;
-  var max = selected === 0 ? 30 : 5;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+  var min = selected === _const__WEBPACK_IMPORTED_MODULE_2__.NULL ? _const__WEBPACK_IMPORTED_MODULE_2__.CREDIT_TIME_MIN : 1;
+  var max = selected === _const__WEBPACK_IMPORTED_MODULE_2__.NULL ? _const__WEBPACK_IMPORTED_MODULE_2__.CREDIT_TIME_MAX : _const__WEBPACK_IMPORTED_MODULE_2__.CREDIT_TIME_MIN;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
       className: "calc__label",
       htmlFor: "creditTime",
       children: "\u0421\u0440\u043E\u043A \u043A\u0440\u0435\u0434\u0438\u0442\u043E\u0432\u0430\u043D\u0438\u044F"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_number_format__WEBPACK_IMPORTED_MODULE_1__.default, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_number_format__WEBPACK_IMPORTED_MODULE_1__.default, {
       className: "calc__input",
       suffix: " \u043B\u0435\u0442",
       value: creditTime,
@@ -1107,7 +1121,7 @@ function CreditTime(_ref) {
 
         _onChange(inputValue);
       }
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
       className: "calc__range",
       type: "range",
       min: min,
@@ -1117,12 +1131,12 @@ function CreditTime(_ref) {
       onChange: function onChange(evt) {
         return _onChange(evt.target.valueAsNumber);
       }
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "calc__range-wrapper",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
         className: "calc__text",
         children: [min, " \u043B\u0435\u0442"]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
         className: "calc__text",
         children: [max, " \u043B\u0435\u0442"]
       })]
@@ -1130,6 +1144,11 @@ function CreditTime(_ref) {
   });
 }
 
+CreditTime.propTypes = {
+  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().func),
+  creditTime: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().number),
+  selected: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().number)
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CreditTime);
 
 /***/ }),
@@ -1289,7 +1308,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_number_format__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-number-format */ "./node_modules/react-number-format/dist/react-number-format.es.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../const */ "./project/src/const.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 
@@ -1304,31 +1328,31 @@ function Display(_ref) {
       selected = _ref.selected;
 
   function Check() {
-    if (selected === 0) {
-      return counter < 1200000 || counter > 25000000;
+    if (selected === _const__WEBPACK_IMPORTED_MODULE_2__.NULL) {
+      return counter < _const__WEBPACK_IMPORTED_MODULE_2__.MORTGAGE_MIN || counter > _const__WEBPACK_IMPORTED_MODULE_2__.MORTGAGE_MAX;
     }
 
-    return counter < 500000 || counter > 5000000;
+    return counter < _const__WEBPACK_IMPORTED_MODULE_2__.DEFAUL_CREDIT || counter > _const__WEBPACK_IMPORTED_MODULE_2__.AUTO_CREDIT_MAX;
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
       className: "calc__label",
       htmlFor: "sum",
-      children: "\u0421\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C ".concat(selected === 0 ? "недвижимости" : "автомобиля")
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: "\u0421\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C ".concat(selected === _const__WEBPACK_IMPORTED_MODULE_2__.NULL ? "недвижимости" : "автомобиля")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "calc__score",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
         className: "calc__minus",
         type: "button",
         onClick: function onClick() {
-          if (selected === 0 && counter <= 100000 || selected === 1 && counter <= 50000) {
+          if (selected === _const__WEBPACK_IMPORTED_MODULE_2__.NULL && counter <= _const__WEBPACK_IMPORTED_MODULE_2__.COUNTER_MORTAGE || selected === _const__WEBPACK_IMPORTED_MODULE_2__.ONE && counter <= _const__WEBPACK_IMPORTED_MODULE_2__.COUNTER_AUTO) {
             return;
           }
 
-          decrement(selected === 0 ? 100000 : 50000);
+          decrement(selected === _const__WEBPACK_IMPORTED_MODULE_2__.NULL ? _const__WEBPACK_IMPORTED_MODULE_2__.COUNTER_MORTAGE : _const__WEBPACK_IMPORTED_MODULE_2__.COUNTER_AUTO);
         }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_number_format__WEBPACK_IMPORTED_MODULE_1__.default, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_number_format__WEBPACK_IMPORTED_MODULE_1__.default, {
         className: "calc__input calc__input-score  ".concat(Check() ? "calc__input-score-error" : ""),
         thousandSeparator: " ",
         suffix: " \u0440\u0443\u0431\u043B\u0435\u0439",
@@ -1337,20 +1361,27 @@ function Display(_ref) {
         onChange: function onChange(evt) {
           _onChange(Number(evt.target.value.substr(0, evt.target.value.length - 7).split(" ").join("")));
         }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
         className: "calc__plus",
         type: "button",
         onClick: function onClick() {
-          return increment(selected === 0 ? 100000 : 50000);
+          return increment(selected === _const__WEBPACK_IMPORTED_MODULE_2__.NULL ? _const__WEBPACK_IMPORTED_MODULE_2__.COUNTER_MORTAGE : _const__WEBPACK_IMPORTED_MODULE_2__.COUNTER_AUTO);
         }
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
       className: "calc__text",
-      children: selected === 0 ? "От 1 200 000  до 25 000 000 рублей" : "От 500 000  до 5 000 000 рублей"
+      children: selected === _const__WEBPACK_IMPORTED_MODULE_2__.NULL ? "От 1 200 000  до 25 000 000 рублей" : "От 500 000  до 5 000 000 рублей"
     })]
   });
 }
 
+Display.propTypes = {
+  counter: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().number),
+  decrement: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().func),
+  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().func),
+  increment: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().func),
+  selected: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().number)
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Display);
 
 /***/ }),
@@ -1367,7 +1398,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../const */ "./project/src/const.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -1385,6 +1419,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 function Dropdown(_ref) {
   var selected = _ref.selected,
       setSelected = _ref.setSelected;
@@ -1395,30 +1431,30 @@ function Dropdown(_ref) {
       setIsActive = _useState2[1];
 
   var options = ['Ипотечное кредитование', 'Автомобильное кредитование'];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "dropdown",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "dropdown-btn",
         onClick: function onClick() {
           return setIsActive(!isActive);
         },
-        children: [selected >= 0 ? options[selected] : 'Выберите цель кредита', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        children: [selected >= _const__WEBPACK_IMPORTED_MODULE_1__.NULL ? options[selected] : 'Выберите цель кредита', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
           className: isActive ? "dropdown__icon-active" : "dropdown__icon",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
             src: "./image/arrow.svg"
           })
         })]
-      }), isActive && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      }), isActive && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "dropdown-content",
         children: options.map(function (option, index) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "dropdown-item",
             onClick: function onClick() {
               setSelected(index);
               setIsActive(false);
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
               className: "dropdown__text",
               children: option
             })
@@ -1429,6 +1465,10 @@ function Dropdown(_ref) {
   });
 }
 
+Dropdown.propTypes = {
+  selected: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().number),
+  setSelected: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().func)
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Dropdown);
 
 /***/ }),
@@ -1445,7 +1485,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -1453,21 +1496,37 @@ __webpack_require__.r(__webpack_exports__);
 
 function Error(_ref) {
   var type = _ref.type,
-      close = _ref.close;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      close = _ref.close,
+      error = _ref.error;
+  useEffect(function () {
+    var body = document.querySelector('body');
+    body.style.overflow = error ? 'hidden' : 'auto';
+
+    var handleEsc = function handleEsc(event) {
+      if (event.keyCode === 27) {
+        close(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleEsc);
+    return function () {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, [error]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "error error-active",
       onClick: function onClick() {
         return close(null);
       },
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "error__wrapper",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "error__case",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
             className: "error__header",
             children: "\u041D\u0430\u0448 \u0431\u0430\u043D\u043A \u043D\u0435 \u0432\u044B\u0434\u0430\u0451\u0442 ".concat(type ? "автомобильные" : "ипотечные", " \u043A\u0440\u0435\u0434\u0438\u0442\u044B \u043C\u0435\u043D\u044C\u0448\u0435 ").concat(type ? "200000" : "500000", " \u0440\u0443\u0431\u043B\u0435\u0439.")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
             className: "error__text",
             children: "\u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u0434\u0440\u0443\u0433\u0438\u0435 \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B \u0434\u043B\u044F \u0440\u0430\u0441\u0447\u0451\u0442\u0430."
           })]
@@ -1477,6 +1536,11 @@ function Error(_ref) {
   });
 }
 
+Error.propTypes = {
+  type: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().number),
+  close: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().number),
+  error: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().number)
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Error);
 
 /***/ }),
@@ -1598,14 +1662,14 @@ function Information() {
         return;
       }
 
-      setActiveTab(tabs[tabs.indexOf(activeTab) + 1]);
+      setActiveTab(tabs[tabs.indexOf(activeTab) + _const__WEBPACK_IMPORTED_MODULE_1__.ONE]);
     },
     onSwipedRight: function onSwipedRight() {
       if (activeTab === _const__WEBPACK_IMPORTED_MODULE_1__.Tab.DEPOSITS) {
         return;
       }
 
-      setActiveTab(tabs[tabs.indexOf(activeTab) - 1]);
+      setActiveTab(tabs[tabs.indexOf(activeTab) - _const__WEBPACK_IMPORTED_MODULE_1__.ONE]);
     }
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
@@ -1699,7 +1763,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_number_format__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-number-format */ "./node_modules/react-number-format/dist/react-number-format.es.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../const */ "./project/src/const.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -1718,15 +1785,17 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 function useForceUpdate() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(_const__WEBPACK_IMPORTED_MODULE_2__.NULL),
       _useState2 = _slicedToArray(_useState, 2),
       value = _useState2[0],
       setValue = _useState2[1];
 
   return function () {
     return setValue(function (value) {
-      return value + 1;
+      return value + _const__WEBPACK_IMPORTED_MODULE_2__.ONE;
     });
   };
 }
@@ -1740,21 +1809,21 @@ function InitialPayment(_ref) {
   var forceUpdate = useForceUpdate();
 
   function Check() {
-    var minCredit = selected === 0 ? 500000 : 200000;
+    var minCredit = selected === _const__WEBPACK_IMPORTED_MODULE_2__.NULL ? _const__WEBPACK_IMPORTED_MODULE_2__.DEFAUL_CREDIT : _const__WEBPACK_IMPORTED_MODULE_2__.MINIMAL_SUMM;
 
     if (maternalCapital) {
-      return counter - initialPayment - 470000 < minCredit;
+      return counter - initialPayment - _const__WEBPACK_IMPORTED_MODULE_2__.MATERNAL_CAPITAL < minCredit;
     } else {
       return counter - initialPayment < minCredit;
     }
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
       className: "calc__label",
       htmlFor: "contribution",
       children: "\u041F\u0435\u0440\u0432\u043E\u043D\u0430\u0447\u0430\u043B\u044C\u043D\u044B\u0439 \u0432\u0437\u043D\u043E\u0441"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_number_format__WEBPACK_IMPORTED_MODULE_1__.default, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_number_format__WEBPACK_IMPORTED_MODULE_1__.default, {
       className: "calc__input ".concat(Check() ? "calc__input-score-error" : ""),
       thousandSeparator: " ",
       suffix: " \u0440\u0443\u0431\u043B\u0435\u0439",
@@ -1762,7 +1831,7 @@ function InitialPayment(_ref) {
       type: "text",
       id: "contribution",
       onValueChange: function onValueChange(evt) {
-        var minPercent = selected === 0 ? 0.1 : 0.2;
+        var minPercent = selected === _const__WEBPACK_IMPORTED_MODULE_2__.NULL ? _const__WEBPACK_IMPORTED_MODULE_2__.AN_INTIAL_FEE_MORTGAGE : _const__WEBPACK_IMPORTED_MODULE_2__.AN_INTIAL_FEE_AUTO;
 
         if (evt.floatValue < counter * minPercent && initialPayment === counter * minPercent) {
           forceUpdate();
@@ -1770,24 +1839,31 @@ function InitialPayment(_ref) {
 
         _onChange(evt.floatValue < counter * minPercent ? counter * minPercent : evt.floatValue);
       }
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
       className: "calc__range",
       type: "range",
       id: "rangeInitialPayment",
-      min: selected === 0 ? "10" : "20",
+      min: selected === _const__WEBPACK_IMPORTED_MODULE_2__.NULL ? "10" : "20",
       max: "100",
-      value: initialPayment / counter * 100,
+      value: initialPayment / counter * _const__WEBPACK_IMPORTED_MODULE_2__.PERCENT,
       step: "5",
       onChange: function onChange(evt) {
-        _onChange(counter / 100 * evt.target.valueAsNumber);
+        _onChange(counter / _const__WEBPACK_IMPORTED_MODULE_2__.PERCENT * evt.target.valueAsNumber);
       }
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
       className: "calc__text",
-      children: selected === 0 ? "10%" : "20%"
+      children: selected === _const__WEBPACK_IMPORTED_MODULE_2__.NULL ? "10%" : "20%"
     })]
   });
 }
 
+InitialPayment.propTypes = {
+  selected: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().number),
+  maternalCapital: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().func),
+  counter: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().number),
+  initialPayment: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().number)
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InitialPayment);
 
 /***/ }),
@@ -2201,7 +2277,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -2210,13 +2289,12 @@ __webpack_require__.r(__webpack_exports__);
 function Password(_ref) {
   var iconShow = _ref.iconShow,
       setPassword = _ref.setPassword;
-  console.log(iconShow);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
       htmlFor: "password",
       className: "sigin__label",
       children: "\u041F\u0430\u0440\u043E\u043B\u044C"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
       id: "password",
       type: iconShow ? "text" : "password",
       className: "sigin__input",
@@ -2228,6 +2306,10 @@ function Password(_ref) {
   });
 }
 
+Password.propTypes = {
+  iconShow: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().bool),
+  setPassword: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func)
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Password);
 
 /***/ }),
@@ -2311,8 +2393,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var focus_trap_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! focus-trap-react */ "./node_modules/focus-trap-react/dist/focus-trap-react.js");
 /* harmony import */ var focus_trap_react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(focus_trap_react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _password_password__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../password/password */ "./project/src/components/password/password.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../const */ "./project/src/const.js");
+/* harmony import */ var _password_password__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../password/password */ "./project/src/components/password/password.jsx");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2332,6 +2417,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
@@ -2386,7 +2473,7 @@ function Sigin(_ref) {
   }
 
   function addToHistory() {
-    if (login.length > 0 && password.length > 0) {
+    if (login.length > _const__WEBPACK_IMPORTED_MODULE_2__.NULL && password.length > _const__WEBPACK_IMPORTED_MODULE_2__.NULL) {
       var history = localStorage.getItem('history');
       var result = [];
 
@@ -2402,57 +2489,57 @@ function Sigin(_ref) {
     }
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: active ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)((focus_trap_react__WEBPACK_IMPORTED_MODULE_0___default()), {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: active ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)((focus_trap_react__WEBPACK_IMPORTED_MODULE_0___default()), {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: active ? "sigin-active" : "sigin",
         onClick: function onClick(evt) {
           setActive(false);
         },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "sigin__wrapper",
           onClick: function onClick(evt) {
             evt.stopPropagation();
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("picture", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("source", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("picture", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("source", {
               media: "(min-width: 768px)",
               srcSet: "./image/logo-login.svg 1x"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
               className: "sigin__logo",
               src: "./image/logo-sigin.svg",
               alt: "logo"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
             className: "sigin__close",
             onClick: function onClick(evt) {
               return setActive(false);
             }
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
             className: "sigin__form",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
               htmlFor: "login",
               className: "sigin__label",
               children: "\u041B\u043E\u0433\u0438\u043D"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
               id: "login",
               className: "sigin__input",
               onChange: function onChange(evt) {
                 var target = evt.target.value;
                 setLogin(target);
               }
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "sigin__password-wrapper",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_password_password__WEBPACK_IMPORTED_MODULE_2__.default, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_password_password__WEBPACK_IMPORTED_MODULE_3__.default, {
                 iconShow: iconShow,
                 setPassword: setPassword
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                 className: "sigin__hidden",
                 onClick: togglePasswordVisiblity
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "sigin__submit-wrapper",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                 className: "sigin__submit",
                 type: "submit",
                 onClick: function onClick(evt) {
@@ -2461,9 +2548,9 @@ function Sigin(_ref) {
                   Clean();
                 },
                 children: "\u0412\u043E\u0439\u0442\u0438"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                 className: "sigin__forgot",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
                   href: "#",
                   children: "\u0417\u0430\u0431\u044B\u043B\u0438 \u043F\u0430\u0440\u043E\u043B\u044C?"
                 })
@@ -2476,6 +2563,10 @@ function Sigin(_ref) {
   });
 }
 
+Sigin.propTypes = {
+  active: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().bool),
+  setActive: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().func)
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Sigin);
 
 /***/ }),
@@ -2492,31 +2583,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 
 
 function Success(_ref) {
-  var close = _ref.close;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+  var close = _ref.close,
+      error = _ref.error;
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var body = document.querySelector('body');
+    body.style.overflow = error ? 'hidden' : 'auto';
+
+    var handleEsc = function handleEsc(event) {
+      if (event.keyCode === 27) {
+        close(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleEsc);
+    return function () {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, [error]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "success success-active",
       onClick: function onClick() {
         return close(null);
       },
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "success__wrapper",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
           className: "success__button",
           onClick: function onClick() {
             return close(null);
           }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
           className: "success__header",
           children: "\u0421\u043F\u0430\u0441\u0438\u0431\u043E \u0437\u0430 \u043E\u0431\u0440\u0430\u0449\u0435\u043D\u0438\u0435 \u0432 \u043D\u0430\u0448 \u0431\u0430\u043D\u043A."
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
           className: "success__text",
           children: "\u041D\u0430\u0448 \u043C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u0441\u043A\u043E\u0440\u043E \u0441\u0432\u044F\u0436\u0435\u0442\u0441\u044F \u0441 \u0432\u0430\u043C\u0438 \u043F\u043E \u0443\u043A\u0430\u0437\u0430\u043D\u043D\u043E\u043C\u0443 \u043D\u043E\u043C\u0435\u0440\u0443 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430"
         })]
@@ -2525,6 +2635,10 @@ function Success(_ref) {
   });
 }
 
+Success.propTypes = {
+  close: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().func),
+  error: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().number)
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Success);
 
 /***/ }),
@@ -2540,7 +2654,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppRoute": () => (/* binding */ AppRoute),
 /* harmony export */   "Tab": () => (/* binding */ Tab),
-/* harmony export */   "dataSlider": () => (/* binding */ dataSlider)
+/* harmony export */   "DEFAULT_MORTGAGE": () => (/* binding */ DEFAULT_MORTGAGE),
+/* harmony export */   "DEFAUL_CREDIT": () => (/* binding */ DEFAUL_CREDIT),
+/* harmony export */   "MATERNAL_CAPITAL": () => (/* binding */ MATERNAL_CAPITAL),
+/* harmony export */   "MORTGAGE_MIN": () => (/* binding */ MORTGAGE_MIN),
+/* harmony export */   "MORTGAGE_MAX": () => (/* binding */ MORTGAGE_MAX),
+/* harmony export */   "AUTO_CREDIT_MAX": () => (/* binding */ AUTO_CREDIT_MAX),
+/* harmony export */   "INITIAL_PAYMENT_PERCENT": () => (/* binding */ INITIAL_PAYMENT_PERCENT),
+/* harmony export */   "INTEREST_RATE_MIN": () => (/* binding */ INTEREST_RATE_MIN),
+/* harmony export */   "INTEREST_RATE_MAX": () => (/* binding */ INTEREST_RATE_MAX),
+/* harmony export */   "CASKO_OR_LIFE_INCURANCE": () => (/* binding */ CASKO_OR_LIFE_INCURANCE),
+/* harmony export */   "CASKO_AND_LIFE_INCURANCE": () => (/* binding */ CASKO_AND_LIFE_INCURANCE),
+/* harmony export */   "INTEREST_RATE_MIN_AUTO": () => (/* binding */ INTEREST_RATE_MIN_AUTO),
+/* harmony export */   "INTEREST_RATE_MAX_AUTO": () => (/* binding */ INTEREST_RATE_MAX_AUTO),
+/* harmony export */   "MINIMAL_SUMM": () => (/* binding */ MINIMAL_SUMM),
+/* harmony export */   "CREDIT_TIME_MIN": () => (/* binding */ CREDIT_TIME_MIN),
+/* harmony export */   "CREDIT_TIME_MAX": () => (/* binding */ CREDIT_TIME_MAX),
+/* harmony export */   "COUNTER_MORTAGE": () => (/* binding */ COUNTER_MORTAGE),
+/* harmony export */   "COUNTER_AUTO": () => (/* binding */ COUNTER_AUTO),
+/* harmony export */   "NULL": () => (/* binding */ NULL),
+/* harmony export */   "AN_INTIAL_FEE_MORTGAGE": () => (/* binding */ AN_INTIAL_FEE_MORTGAGE),
+/* harmony export */   "AN_INTIAL_FEE_AUTO": () => (/* binding */ AN_INTIAL_FEE_AUTO),
+/* harmony export */   "ONE": () => (/* binding */ ONE),
+/* harmony export */   "MONTHLY_PAYMENT": () => (/* binding */ MONTHLY_PAYMENT),
+/* harmony export */   "PERCENT": () => (/* binding */ PERCENT)
 /* harmony export */ });
 var AppRoute = {
   CONVERTER: '/'
@@ -2551,16 +2688,30 @@ var Tab = {
   INSURANCE: 'insurance',
   SERVISES: 'servises'
 };
-var dataSlider = [{
-  id: 1,
-  title: 'Кредиты на любой случай'
-}, {
-  id: 2,
-  title: 'Ваша уверенность в завтрашнем дне'
-}, {
-  id: 3,
-  title: 'Всегда рядом'
-}];
+var DEFAULT_MORTGAGE = 2000000;
+var DEFAUL_CREDIT = 500000;
+var MATERNAL_CAPITAL = 470000;
+var MORTGAGE_MIN = 1200000;
+var MORTGAGE_MAX = 2500000;
+var AUTO_CREDIT_MAX = 5000000;
+var INITIAL_PAYMENT_PERCENT = 0.15;
+var INTEREST_RATE_MIN = 8.50;
+var INTEREST_RATE_MAX = 9.40;
+var CASKO_OR_LIFE_INCURANCE = 8.5;
+var CASKO_AND_LIFE_INCURANCE = 3.5;
+var INTEREST_RATE_MIN_AUTO = 15;
+var INTEREST_RATE_MAX_AUTO = 16;
+var MINIMAL_SUMM = 200000;
+var CREDIT_TIME_MIN = 5;
+var CREDIT_TIME_MAX = 30;
+var COUNTER_MORTAGE = 100000;
+var COUNTER_AUTO = 50000;
+var NULL = 0;
+var AN_INTIAL_FEE_MORTGAGE = 0.1;
+var AN_INTIAL_FEE_AUTO = 0.2;
+var ONE = 1;
+var MONTHLY_PAYMENT = 45;
+var PERCENT = 100;
 
 /***/ }),
 
@@ -6446,7 +6597,7 @@ __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
     if(true) {
-      // 1635091141517
+      // 1635181131360
       var cssReload = __webpack_require__(/*! ./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {"locals":false});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);
@@ -50898,7 +51049,7 @@ webpackContext.id = "./node_modules/webpack/hot sync ^\\.\\/log$";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("992715eba0e229d00531")
+/******/ 		__webpack_require__.h = () => ("3d12928f866a5bbbc42b")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
