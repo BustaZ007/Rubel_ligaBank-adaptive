@@ -59,3 +59,8 @@ h2, h3, ul {
   grid-template-rows: min-content 1fr min-content;
   align-content: start;
 }
+
+[class*="ymaps-2"][class*="-ground-pane"] {
+  -webkit-filter: rgb(237, 246, 230);
+  filter: rgb(237, 246, 230);
+  }
