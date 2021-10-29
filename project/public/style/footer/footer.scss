@@ -14,7 +14,7 @@
   font-size: 12px;
   line-height: 17px;
   font-weight: 400;
-  color: var(--text-opacity);
+  color: #4D555D;
 }
 
 @media (min-width: 768px) {
@@ -54,6 +54,7 @@
     display: grid;
     grid-template-areas: 'a b'
                         'c b';
+    grid-template-rows: 26px 1fr;
   }
 
   .foother-description__case {
@@ -64,14 +65,15 @@
 
   .adress {
     margin: 0;
-  }
-
-  .adress__case {
-    margin-top: -125px;
+    grid-area: a;
   }
 
   .adress__img {
     width: 148px;
+  }
+
+  .adress__case {
+    grid-area: c;
   }
 }
 

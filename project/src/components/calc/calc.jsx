@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import CreditTime from '../credit-time/credit-time';
 import Display from '../display/display';
 import Dropdown from '../dropdown/dropdown';
@@ -10,7 +10,6 @@ import { DEFAULT_MORTGAGE, DEFAUL_CREDIT, MATERNAL_CAPITAL, MORTGAGE_MIN, MORTGA
   CASKO_AND_LIFE_INCURANCE, INTEREST_RATE_MIN_AUTO, INTEREST_RATE_MAX_AUTO,
   MINIMAL_SUMM, CREDIT_TIME_MIN, NULL, AN_INTIAL_FEE_MORTGAGE, AN_INTIAL_FEE_AUTO, ONE, MONTHLY_PAYMENT,
   PERCENT} from '../../const';
-
 
 function Calc() {
   const STEP_TWO = 2;
@@ -53,7 +52,7 @@ function Calc() {
   }
 
   function getCreditSumm() {
-    return (maternalCapital) ? counter - initialPayment - MATERNAL_CAPITAL: counter - initialPayment; 
+    return (maternalCapital && selected === NULL) ? counter - initialPayment - MATERNAL_CAPITAL : counter - initialPayment; 
   }
 
   function getPercent() {
@@ -123,6 +122,16 @@ function Calc() {
     return formater.format(number);
   }
 
+  const useScroll = () => {
+    const elRef = useRef(null);
+    const executeScroll = () => elRef.current.scrollIntoView();
+  
+    return [executeScroll, elRef];
+  };
+
+  const [executeScroll, elRef] = useScroll();
+  useEffect(executeScroll, []);
+
   return(
     <>
     <section className="calc">
@@ -147,17 +156,34 @@ function Calc() {
 
                 <CreditTime creditTime={creditTime} onChange={setCreditTime} selected={selected}/>
 
-                <input 
-                  className="calc__maternalCapital"
-                  type="checkbox" 
-                  id="maternalCapital" 
-                  checked={maternalCapital}
-                  onChange={evt => setMaternalCapital(evt.target.checked)}
-                />
-                <label className="calc__checkbox" htmlFor="maternalCapital">Использовать материнский капитал</label>
+                <div className={(selected !== NULL) ? "calc__insurance" : ""}>
+                  <input 
+                    className="calc__maternalCapital"
+                    type="checkbox" 
+                    id="maternalCapital" 
+                    checked={maternalCapital}
+                    onChange={evt => {
+                      const minPercent = (selected === NULL) ? AN_INTIAL_FEE_MORTGAGE : AN_INTIAL_FEE_AUTO;
+                      setMaternalCapital(evt.target.checked);
+                      setInitialPayment(counter * minPercent);
+                      }}
+                  />
+                  <label className="calc__checkbox" 
+                    tabIndex="0" 
+                    htmlFor="maternalCapital"
+                    onKeyDown={(evt) => {
+                      if(evt.key === "Enter") {
+                        const minPercent = (selected === NULL) ? AN_INTIAL_FEE_MORTGAGE : AN_INTIAL_FEE_AUTO;
+                        setMaternalCapital(!maternalCapital);
+                        setInitialPayment(counter * minPercent);
+                      }
+                    }}
+                  >Использовать материнский капитал</label>
+                </div>
 
                 <div className={(selected === NULL) ? "calc__insurance" : ""}>
-                  <input 
+                  <input
+                    className="calc__maternalCapital"
                     type="checkbox" 
                     id="casko" 
                     checked={casko}
@@ -167,6 +193,7 @@ function Calc() {
                 </div>
                 <div className={(selected === NULL) ? "calc__insurance" : ""}>
                   <input 
+                    className="calc__maternalCapital"
                     type="checkbox" 
                     id="insuranceCheckbox" 
                     checked={insurance}
@@ -200,15 +227,16 @@ function Calc() {
                   </li>
                 </ul>
               </div>
-              <button className="calc__button" type="submit" onClick={(evt) => {
+              <button className="calc__button"  type="submit" onClick={(evt) => {
                 evt.preventDefault();
                 submitCredit();
+                setTimeout(executeScroll, 100);
               }}>Оформить заявку</button>
             </div>
           </div>
         </div>
       </form>
-      <div className={(stepCount === ONE || stepCount === STEP_TWO) ? "calc__step-hidden" : "registration"}>
+      <div ref={elRef} className={(stepCount === ONE || stepCount === STEP_TWO) ? "calc__step-hidden" : "registration"}>
         <div className="registration__wrapper">
           <h3 className="registration__header">Шаг 3. Оформление заявки</h3>
           <ul className="registration__list">
@@ -244,7 +272,7 @@ function Calc() {
             />
             <div className="registration__case">
               <label className="visually-hidden">Телефон</label>
-              <input type="text" className="registration__phohe" placeholder="Телефон"
+              <input type="tel" className="registration__phohe" placeholder="Телефон"
                 required="required"
                 onChange={(evt) => {
                     const target = evt.target.value;
@@ -252,7 +280,7 @@ function Calc() {
                 }}
               />
               <label className="visually-hidden">Е-mail</label>
-              <input type="text" className="registration__email" placeholder="E-mail"
+              <input type="email" className="registration__email" placeholder="E-mail"
                 required="required"
                 onChange={(evt) => {
                     const target = evt.target.value;

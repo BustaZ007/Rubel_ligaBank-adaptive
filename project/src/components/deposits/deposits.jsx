@@ -12,13 +12,13 @@ function Deposits() {
               <li className="information__item">Разнообразные условия</li>
               <li className="information__item">Возможность ежемесячной<br className="br-none" /> капитализации или вывод<br className="br-none"/> процентов на банковскую карту</li>
             </ul>
-            <button className="information__button">Узнать подробнее</button>
+            <button tabIndex="1" className="information__button">Узнать подробнее</button>
           </div>
           <div className="information__img-wrapper">
             <picture>
               <source media="(min-width: 1366px)" srcSet="./image/piggybank.png 1x" />
               <source  media="(min-width: 768px)" srcSet="./image/piggybank-tablet.png 1x" />
-              <img src="./image/piggybank-mobile.png" />
+              <img className="information__image" src="./image/piggybank-mobile.png" alt="piggybank" width="87" height="133" />
             </picture>
           </div>
         </div>

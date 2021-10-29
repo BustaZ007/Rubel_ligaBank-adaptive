@@ -12,8 +12,8 @@ function Information() {
 
   const tabs = [Tab.DEPOSITS, Tab.CREDITS, Tab.INSURANCE, Tab.SERVISES];
 
-  function tabClick(evt) {
-    switch(evt.target.name) {
+  function tabClick(evt, tab) {
+    switch(tab ? tab : evt.target.name) {
       case Tab.CREDITS: 
         setActiveTab(Tab.CREDITS);
         break;
@@ -84,6 +84,7 @@ function Information() {
               setActiveTab(evt.target.id ? evt.target.id : evt.target.name);
             }}>
               <Link className="information__tabs-text"
+              tabIndex="1"
               to='#'
               onFocus={tabClick}
               name={Tab.DEPOSITS}
@@ -98,6 +99,7 @@ function Information() {
             }}
             >
               <Link className="information__tabs-text"
+              tabIndex="2"
               to='#'
               onFocus={tabClick}
               name={Tab.CREDITS}
@@ -112,6 +114,7 @@ function Information() {
               }}
             >
               <Link className="information__tabs-text"
+              tabIndex="2"
               to='#'
               onFocus={tabClick}
               name={Tab.INSURANCE}
@@ -126,6 +129,7 @@ function Information() {
             }}
             >
               <Link className="information__tabs-text"
+              tabIndex="3"
               to='#'
               onFocus={tabClick}
               name={Tab.SERVISES}
@@ -137,7 +141,17 @@ function Information() {
       {renderTab(activeTab)}
       <div className="dot-information">
       {tabs.map((tab, index) => {
-       return <div key={index} className={(tabs.indexOf(activeTab) === index) ? "dot-information__active" : "dot-information__item"}></div>
+       return <div 
+        key={index} 
+        tabIndex="0"
+        className={(tabs.indexOf(activeTab) === index) ? "dot-information__active" : "dot-information__item"}
+        onKeyDown={(evt) => {
+          if(evt.key === "Enter") {
+            tabClick(evt, tab);
+          }
+        }}
+        onClick={() => tabClick(null, tab)}
+        ></div>
       })
       }
       </div>

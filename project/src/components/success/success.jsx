@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import propTypes from 'prop-types';
 
 function Success({close, error}) {
+  console.log(error);
   useEffect(() => {
     const body = document.querySelector('body');
-    body.style.overflow = error ? 'hidden' : 'auto';
+    body.style.overflow = (error === null ) ? 'hidden' : 'auto';
 
     const handleEsc = (event) => {
       if (event.keyCode === 27) {

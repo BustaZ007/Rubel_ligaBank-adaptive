@@ -101,6 +101,10 @@
   height: 50px;
 }
 
+.registration__button:hover {
+  opacity: 0.7;
+}
+
 @media(min-width: 768px) {
   .registration {
     padding: 0 45px;
@@ -109,12 +113,13 @@
   .registration__header {
     font-size: 18px;
     line-height: 25px;
-    margin-bottom: 42px;
+    margin-bottom: 39px;
   }
 
   .registration__item {
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     padding-bottom: 8px;
     margin-bottom: 15px;
   }
@@ -171,5 +176,11 @@
 
   .registration__button {
     width: 31%;
+  }
+}
+
+@media(min-width: 1366px) {
+  .registration__header {
+    margin-bottom: 25px;
   }
 }

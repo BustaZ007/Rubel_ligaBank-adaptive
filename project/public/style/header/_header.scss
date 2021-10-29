@@ -2,7 +2,7 @@
 
 .header {
   display: grid;
-  grid-template-columns: 1fr ;
+  grid-template-columns: 1fr min-content;
   background-color: var(--text-button);
   padding: 13px calc(15px);
   position: relative;
@@ -34,6 +34,16 @@
   padding: 20px 15px;
 }
 
+.header__login-case {
+  position: relative;
+  margin-left: -20px;
+}
+
+.header__item:hover,
+.header__login-case:hover {
+  opacity: 0.7;
+}
+
 .header__item a {
   text-decoration: none;
   color: var(--text-classic);
@@ -56,7 +66,9 @@
 }
 
 .header__img {
-  margin-left: 24%;
+  margin-left: 10%;
+  width: 119px;
+  height: 19px;
 }
 
 .header__menu {
@@ -83,14 +95,11 @@
 }
 
 .header__login {
-  position: absolute;
   display: block;
   cursor: pointer;
   border: none;
   width: 16px;
   height: 10px;
-  top: 16px;
-  right: 13px;
   background-color: var(--text-button);
 }
 
@@ -99,21 +108,18 @@
   content: "";
   width: 16px;
   height: 18px;
-  top: 0;
+  top: 3px;
   right: 0;
   background-image: url("../../image/login-mobile.svg");
   background-repeat: no-repeat;
 }
 
 .header__login-close {
-  position: absolute;
   display: block;
   cursor: pointer;
   border: none;
   width: 16px;
   height: 10px;
-  top: 16px;
-  right: 19px;
   background-color: var(--text-button);
 }
 
@@ -122,8 +128,8 @@
   content: "";
   width: 16px;
   height: 18px;
-  top: 0;
-  right: 0;
+  top: 3px;
+  right: -1px;
   background-image: url("../../image/close.svg");
   background-repeat: no-repeat;
 }
@@ -131,16 +137,27 @@
 @media (min-width: 768px) {
   .header {
     padding: 25px 45px 18px 45px;
-    grid-template-columns: min-content 1fr min-content;
+    grid-template-columns: 1fr min-content;
   }
 
   .display-tablet {
     display: none;
   }
 
+  .header__nav-case {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+  }
+
   .header__img {
     margin: 0;
     width: 133px;
+    height: 22px;
+  }
+
+  .header__login-case {
+    width: 22px;
+    margin: 0;
   }
 
   .header__nav {
@@ -177,6 +194,7 @@
   .header__login::after {
     width: 20px;
     height: 22px;
+    top: -1px;
     background-image: url("../../image/vector-tablet.svg")
   }
 }
@@ -186,12 +204,25 @@
     padding: 32px calc(50% - 495px);
   }
 
+  .header__login {
+    width: min-content;
+    height: auto;
+    padding: 0;
+  }
+
   .header__login-text {
     display: block;
     min-width: 173px;
-    margin-left: 19px;
+    margin-top: 3px;
+    margin-left: 29px;
+    margin-right: -4px;
     font-size: 16px;
     line-height: 19px;
+  }
+
+  .header__login::after {
+    left: 0;
+    top: 1px;
   }
 
   .header__img {
@@ -208,18 +239,26 @@
     margin-right: 3%;
   }
 
-  .header__login {
-    top: 35px;
-    right: 208px;
+  .header__login-case {
+    width: min-content;
   }
 }
 
 @media(min-width: 1366px) {
   .header {
     padding: 32px calc(50% - 580px);
+    padding-bottom: 30px;
   }
 
-  .header__login {
-    right: 281px;
+  .header__list {
+    margin-left: 12%;
+  }
+
+  .header__item {
+    margin-right: 4%;
+  }
+
+  .header__img {
+    height: 24px;
   }
 }

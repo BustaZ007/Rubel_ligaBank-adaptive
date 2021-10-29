@@ -9,12 +9,12 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path={AppRoute.CONVERTER}>
-          <Main/>
-        </Route>
-        <Route>
-          <NotFound />
-        </Route>
+          <Route exact path={AppRoute.CONVERTER}>
+            <Main/>
+          </Route>
+          <Route>
+            <NotFound />
+          </Route>
       </Switch>
     </BrowserRouter>
   );

@@ -10,6 +10,7 @@ function Password({iconShow, setPassword}) {
             const target = evt.target.value;
             setPassword(target);
         }}
+        required=""
       />
     </>
   );

@@ -30,9 +30,11 @@ function Sigin({active, setActive}) {
   }, [active]);
 
   function Clean() {
-    setActive(false);
-    setLogin("");
-    setPassword("");
+    if(login.length > 0 && password.length > 0) {
+      setActive(false);
+      setLogin("");
+      setPassword("");
+    }
   }
 
   function addToHistory() {
@@ -65,15 +67,16 @@ function Sigin({active, setActive}) {
             <button className="sigin__close" onClick={(evt) => setActive(false)}></button>
             <form className="sigin__form">
               <label htmlFor="login" className="sigin__label">Логин</label>
-              <input id="login" className="sigin__input"
+              <input id="login" type="text" className="sigin__input"
                 onChange={(evt) => {
                     const target = evt.target.value;
                     setLogin(target);
                 }}
+                required=""
               />
               <div className="sigin__password-wrapper">
                 <Password iconShow={iconShow} setPassword={setPassword}/>
-                <button className="sigin__hidden" onClick={togglePasswordVisiblity}></button>
+                <button type="button" className="sigin__hidden" onClick={togglePasswordVisiblity}></button>
               </div>
               <div className="sigin__submit-wrapper">
                 <button className="sigin__submit"

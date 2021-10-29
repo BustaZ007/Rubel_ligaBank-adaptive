@@ -12,13 +12,13 @@ function Insurance() {
               <li className="information__item">Страхование жизни и здоровья</li>
               <li className="information__item">Страхование недвижимости</li>
             </ul>
-            <button className="information__button">Узнать подробнее</button>
+            <button tabIndex="2" className="information__button">Узнать подробнее</button>
           </div>
-          <div className="information__img-wrapper">
+          <div className="information__img-wrapper information__img-wrapper-2 ">
             <picture>
               <source media="(min-width: 1366px)" srcSet="./image/block.png 1x" />
-              <source  media="(min-width: 768px)" srcSet="./image/piggybank-tablet.png 1x" />
-              <img src="./image/piggybank-mobile.png" />
+              <source  media="(min-width: 768px)" srcSet="./image/block-tablet.png 1x" />
+              <img className="information__image" src="./image/block-mobile.png" alt="block" width="87" height="133" />
             </picture>
           </div>
         </div>

@@ -13,14 +13,14 @@ function Credits() {
               <li className="information__item">Потребительский кредит</li>
             </ul>
             <p className="information__text">Рассчитайте ежемесячный платеж
-            и ставку по кредиту воспользовавшись нашим <a>кредитным калькулятором</a>
+            и ставку по кредиту воспользовавшись нашим <a className="informtion__link" href="#">кредитным калькулятором</a>
             </p>
           </div>
-          <div className="information__img-wrapper">
+          <div className="information__img-wrapper information__img-wrapper-2">
             <picture>
               <source media="(min-width: 1366px)" srcSet="./image/car-money.png 1x" />
-              <source  media="(min-width: 768px)" srcSet="./image/piggybank-tablet.png 1x" />
-              <img src="./image/piggybank-mobile.png" />
+              <source  media="(min-width: 768px)" srcSet="./image/car-money-tablet.png 1x" />
+              <img className="information__image" src="./image/car-money-mobile.png" alt="credit" width="87" height="133"/>
             </picture>
           </div>
         </div>

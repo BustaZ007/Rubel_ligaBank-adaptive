@@ -59,5 +59,10 @@
 @media(min-width: 1366px) {
   .map {
     padding: 0 calc(50% - 585px);
+    margin-bottom: 111px;
+  }
+
+  .map__header {
+    margin-bottom: 58px;
   }
 }

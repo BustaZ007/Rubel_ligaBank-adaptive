@@ -11,11 +11,11 @@ function BurgerMenu({modalBurgerActive, setModalActive}) {
   <nav className={(modalBurgerActive) ? "header__nav-active" : "header__nav"}>
     <div className="header__nav-wrapper">
       <ul className="header__list">
-        <li className="header__item"><a href="#">Услуги</a></li>
-        <li className="header__item"><a href="#">Рассчитать кредит</a></li>
-        <li className="header__item"><a href="#">Конвертер валют</a></li>
-        <li className="header__item"><a href="#">Контакты</a></li>
-        <li className="header__item" onClick={() => setModalActive(true)}><span className="header__item-button">Войти в Интернет-банк</span></li>
+        <li className="header__item"><a tabIndex="1" href="#">Услуги</a></li>
+        <li className="header__item"><a tabIndex="1" href="#">Рассчитать кредит</a></li>
+        <li className="header__item"><a tabIndex="1" href="#">Конвертер валют</a></li>
+        <li className="header__item"><a tabIndex="1" href="#">Контакты</a></li>
+        <li className="header__item" onClick={() => setModalActive(true)}><span tabIndex="1" className="header__item-button">Войти в Интернет-банк</span></li>
       </ul>
     </div>
   </nav>

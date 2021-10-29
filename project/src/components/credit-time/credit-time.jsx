@@ -1,17 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NumberFormat from 'react-number-format';
-import { CREDIT_TIME_MIN, CREDIT_TIME_MAX, NULL } from '../../const';
+import { CREDIT_TIME_MIN, CREDIT_TIME_MAX, NULL, ONE} from '../../const';
 import propTypes, { func } from 'prop-types';
 
+function useForceUpdate() {
+  const [value, setValue] = useState(NULL);
+  return () => setValue(value => value + ONE);
+}
+
 function CreditTime({creditTime, onChange, selected}) {
+  const forceUpdate = useForceUpdate();
   const min = (selected === NULL) ? CREDIT_TIME_MIN : 1;
   const max = (selected === NULL) ? CREDIT_TIME_MAX : CREDIT_TIME_MIN;
+
+  function declOfNum(n, text_forms) {  
+    n = Math.abs(n) % 100; 
+    let n1 = n % 10;
+    if (n > 10 && n < 20) { return text_forms[2]; }
+    if (n1 > 1 && n1 < 5) { return text_forms[1]; }
+    if (n1 == 1) { return text_forms[0]; }
+    return text_forms[2];
+  }
+  const year = ['год', 'года', 'лет'];
   return(
     <>
       <label className="calc__label" htmlFor="creditTime">Срок кредитования</label>
       <NumberFormat 
         className="calc__input" 
-        suffix=" лет"
+        suffix={` ${declOfNum(creditTime, year)}`}
         value={creditTime}
         onValueChange={(value) => {
           let inputValue = value.floatValue;
@@ -21,6 +37,7 @@ function CreditTime({creditTime, onChange, selected}) {
             inputValue = max;
           }
           onChange(inputValue);
+          forceUpdate();
         }}
       />
       <input className="calc__range" 
@@ -32,7 +49,7 @@ function CreditTime({creditTime, onChange, selected}) {
         onChange={(evt) => onChange(evt.target.valueAsNumber)}
       />
       <div className="calc__range-wrapper">
-        <p className="calc__text">{min} лет</p>
+        <p className="calc__text">{min} {declOfNum(min,year)}</p>
         <p className="calc__text">{max} лет</p>
       </div>
     </>

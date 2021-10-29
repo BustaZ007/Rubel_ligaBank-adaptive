@@ -24,24 +24,33 @@
   padding: 0 calc(50% - 144px);
 }
 
+
 .banner__wrapper {
   background-image: url("../../image/main-image.png");
   background-repeat: no-repeat;
 }
 
-.banner-2 {
+.banner__wrapper-2 {
   background-image: url("../../image/banner-2-mobile.png");
   background-repeat: no-repeat;
   background-position: 50%;
 }
 
-.banner-3 {
+.banner__wrapper-3 {
   background-image: url("../../image/banner-3-mobile.png");
   background-repeat: no-repeat;
   background-position: 50%;
 }
 
-.banner__wrapper::before {
+.banner-2 {
+  background: linear-gradient(90deg, rgba(220,225,237,1) 13%, rgba(242,250,255,1) 47%);
+}
+
+.banner-3 {
+  background-color: #E4F1FF;
+}
+
+.banner__wrapper .banner__case::before {
   content: "";
   position: absolute;
   width: 104px;
@@ -102,11 +111,17 @@
   border-radius: 4px;
   margin-top: 23px;
   border: none;
+  font-family: 'Roboto', sans-serif;
 }
 
 .banner__button-2 {
   background-color: var(--button-color);
 }
+
+.banner__button:hover,
+.banner__button-2:hover {
+  opacity: 0.7;
+} 
 
 .banner__button-text {
   color: var(--text-classic);
@@ -130,6 +145,7 @@
   position: absolute;
   top: 209px;
   left: 45%;
+  z-index: 1;
 }
 
 .dot__item {
@@ -158,15 +174,15 @@
     min-height: 300px;
   }
 
-  .banner-2 {
+  .banner__wrapper-2 {
     background-image: url("../../image/banner-2-tablet.png");
   }
 
-  .banner-3 {
+  .banner__wrapper-3 {
     background-image: url("../../image/banner-3-tablet.png");
   }
 
-  .banner__wrapper::before {
+  .banner__wrapper .banner__case::before {
     width: 334px;
     height: 206px;
     top: 37px;
@@ -220,41 +236,44 @@
     background-image: url("../../image/main-image.png");
   }
 
-  .banner-2 {
+  .banner-2,
+  .banner-3  {
     min-height: 400px;
     margin-bottom: 60px;
+  }
+
+  .banner__wrapper-2 {
     background-image: url("../../image/banner2.png");
     background-position: 50%;
   }
 
-  .banner-3 {
-    min-height: 400px;
-    margin-bottom: 60px;
+  .banner__wrapper-3 {
     background-image: url("../../image/banner3.png");
     background-position: 50%;
   }
 
   .banner__wrapper {
-    padding: 0 calc(50% - 415px);
+    padding: 0;
     background: linear-gradient(180.24deg, rgba(32, 39, 179, 0) 36.31%, #2027B3 99.79%);
     min-height: 400px;
   }
 
-  .banner__wrapper::after {
+  .banner__wrapper .banner__case::after {
     position: absolute;
     content: "";
     width: 917px;
     height: 400px;
     top: 0px;
-    left: 165px;
-    z-index: 0;
+    left: -118px;
+    z-index: -1;
     background-image: url("../../image/main-image.png");
   }
-  .banner__wrapper::before {
+
+  .banner__wrapper .banner__case::before {
     width: 422px;
     height: 260px;
     top: 60px;
-    right: 246px;
+    right: -22px;
     background-image: url("../../image/card-bank.png");
     z-index: 1;
   }
@@ -292,6 +311,7 @@
     padding-top: 103px;
     position: relative;
     z-index: 1;
+    margin: 0 calc(50% - 415px);
   }
 
   .banner__button {
