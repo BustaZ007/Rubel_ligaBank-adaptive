@@ -2,6 +2,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const RobotstxtPlugin = require("robotstxt-webpack-plugin");
+
+const options = { 
+  filePath: "robots.txt",
+};
 
 const path = require('path');
 let mode = "development"
@@ -66,7 +71,8 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: "./project/public/index.html",
-  }),
+    }),
+    new RobotstxtPlugin(options),
   new CopyPlugin({
     patterns: [
           {
