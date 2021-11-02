@@ -15,7 +15,7 @@ function BurgerMenu({modalBurgerActive, setModalActive}) {
         <li className="header__item"><a tabIndex="1" href="#">Рассчитать кредит</a></li>
         <li className="header__item"><a tabIndex="1" href="#">Конвертер валют</a></li>
         <li className="header__item"><a tabIndex="1" href="#">Контакты</a></li>
-        <li className="header__item" onClick={() => setModalActive(true)}><span tabIndex="1" className="header__item-button">Войти в Интернет-банк</span></li>
+        <li className="header__item header__none" onClick={() => setModalActive(true)}><span tabIndex="1" className="header__item-button">Войти в Интернет-банк</span></li>
       </ul>
     </div>
   </nav>

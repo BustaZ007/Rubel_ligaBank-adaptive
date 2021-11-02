@@ -52,8 +52,11 @@
   },
   "dependencies": {
     "focus-trap-react": "^8.8.2",
+    "leaflet": "^1.7.1",
     "prop-types": "^15.7.2",
     "react-iframe": "^1.8.0",
+    "react-leaflet": "^3.2.2",
+    "react-leaflet-control": "^2.1.2",
     "react-number-format": "^4.7.3",
     "react-scroll": "^1.8.4",
     "react-swipeable": "^6.2.0",

@@ -1,59 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { YMaps, Map, Placemark, ZoomControl, GeolocationControl, Button } from 'react-yandex-maps';
 import Banner from '../banner/banner';
 import BurgerMenu from '../burger-menu/burger-menu';
 import Calc from '../calc/calc';
 import Information from '../information/information';
+import Leaflet from '../leaflet/leaflet';
 import Sigin from '../sigin/sigin';
 
-const mapData = {
-  center: [55.7522200, 37.6155600],
-  zoom: 5,
-};
-
-const coordinates = [
-  [55.7522200, 37.6155600],
-  [51.5405600, 46.0086100],
-  [39.9075000, 116.3972300],
-  [57.1522200, 65.5272200],
-  [54.9924400, 73.3685900],
-  [55.7887400, 49.1221400],
-];
-
-const mapOptions = {
-  iconLayout: "default#image",
-  iconImageHref: "./image/location.png",
-  iconImageOffset: [-17, -40],
-};
-
-const zoomOptions = {
-  position: {
-    right: 20,
-    top: 230,
-  },
-  size: "small",
-};
-
-const geoMapOptions = {
-  position: {
-    right: 20,
-    top: 300,
-  }
-};
-const layoutImage = {
-  data: {
-    image: "./image/navigation.jpeg",
-  }
-};
-
-const buttonOption = {
-  position: {
-    right: 21,
-    top: 230,
-  },
-  size: "small",
-};
 
 function Main() {
   const [modalActive, setModalActive] = useState(false);
@@ -94,14 +47,7 @@ function Main() {
         <div className="map__wrapper">
           <h2 className="map__header">Отделения Лига Банка</h2>
         </div>
-        <YMaps className="map__yandex">
-          <Map defaultState={mapData} className="map__yandex">
-            {coordinates.map((coordinate, index) => <Placemark options={mapOptions} key={index} geometry={coordinate} />)}
-            <ZoomControl options={zoomOptions} />
-            <Button options={buttonOption} layout={layoutImage} />
-            <GeolocationControl options={geoMapOptions} />
-          </Map>
-        </YMaps>
+        <Leaflet/>
       </div>
     </main>
     <footer className="page-footer">
