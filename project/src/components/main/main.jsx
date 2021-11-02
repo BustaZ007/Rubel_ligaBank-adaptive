@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { YMaps, Map, Placemark, ZoomControl, GeolocationControl } from 'react-yandex-maps';
+import { YMaps, Map, Placemark, ZoomControl, GeolocationControl, Button } from 'react-yandex-maps';
 import Banner from '../banner/banner';
 import BurgerMenu from '../burger-menu/burger-menu';
 import Calc from '../calc/calc';
@@ -40,6 +40,19 @@ const geoMapOptions = {
     right: 20,
     top: 300,
   }
+};
+const layoutImage = {
+  data: {
+    image: "./image/navigation.jpeg",
+  }
+};
+
+const buttonOption = {
+  position: {
+    right: 21,
+    top: 230,
+  },
+  size: "small",
 };
 
 function Main() {
@@ -85,6 +98,7 @@ function Main() {
           <Map defaultState={mapData} className="map__yandex">
             {coordinates.map((coordinate, index) => <Placemark options={mapOptions} key={index} geometry={coordinate} />)}
             <ZoomControl options={zoomOptions} />
+            <Button options={buttonOption} layout={layoutImage} />
             <GeolocationControl options={geoMapOptions} />
           </Map>
         </YMaps>

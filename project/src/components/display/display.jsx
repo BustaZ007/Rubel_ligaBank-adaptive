@@ -58,8 +58,8 @@ function Display({counter, decrement, onChange, increment, selected}) {
           suffix=" рублей"
           id="sum"
           value={counter}
-          onValueChange={evt => {
-            restrictions(evt.floatValue)}}
+          onBlur={evt => {
+            restrictions(Number(evt.target.value.substr(0, evt.target.value.length - 7).split(" ").join("")))}}
         />
         <button className="calc__plus" type="button" onClick={()=> {
           if((selected === NULL && counter >= MORTGAGE_MAX) || (selected === ONE && counter >= AUTO_CREDIT_MAX)) {

@@ -56,8 +56,8 @@ function InitialPayment({initialPayment, counter, onChange, maternalCapital, sel
       value={initialPayment}
       type="text" 
       id="contribution"
-      onValueChange={evt => {
-        restrictions(evt.floatValue);
+      onBlur={evt => {
+        restrictions(Number(evt.target.value.substr(0, evt.target.value.length - 7).split(" ").join("")));
       }}
     />
     <input className="calc__range"

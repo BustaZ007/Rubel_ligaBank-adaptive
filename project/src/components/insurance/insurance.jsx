@@ -16,7 +16,7 @@ function Insurance() {
           </div>
           <div className="information__img-wrapper information__img-wrapper-2 ">
             <picture>
-              <source media="(min-width: 1366px)" srcSet="./image/block.png 1x" />
+              <source media="(min-width: 1024px)" srcSet="./image/block.png 1x" />
               <source  media="(min-width: 768px)" srcSet="./image/block-tablet.png 1x" />
               <img className="information__image" src="./image/block-mobile.png" alt="block" width="87" height="133" />
             </picture>

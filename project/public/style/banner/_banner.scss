@@ -146,6 +146,7 @@
   top: 209px;
   left: 45%;
   z-index: 1;
+  cursor: pointer;
 }
 
 .dot__item {
@@ -160,6 +161,12 @@
   height: 6px;
   border-radius: 50%;
   background-color: var(--text-button);
+}
+
+@media(min-width: 500px) {
+  .banner-2 {
+    background:  linear-gradient(90deg, #dce1ed 36%, #f2faff 47%);
+  }
 }
 
 @media(min-width: 768px) {

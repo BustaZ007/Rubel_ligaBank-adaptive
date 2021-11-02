@@ -15,7 +15,7 @@ function Service() {
           </div>
           <div className="information__img-wrapper">
             <picture>
-              <source media="(min-width: 1366px)" srcSet="./image/phone-image.png 1x" />
+              <source media="(min-width: 1024px)" srcSet="./image/phone-image.png 1x" />
               <source  media="(min-width: 768px)" srcSet="./image/phone-tablet.png 1x" />
               <img className="information__image" src="./image/phone-mobile.png" alt="phone" width="87" height="113" />
             </picture>

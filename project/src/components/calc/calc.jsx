@@ -72,14 +72,7 @@ function Calc() {
     return Math.round(getCreditSumm() * getPercent()/1200/(ONE- Math.pow(1+getPercent()/1200,-creditTime*12)));
   }
 
-  function validateFields() {
-    return(selected === NULL && counter > MORTGAGE_MIN && counter < MORTGAGE_MAX) || (selected === ONE && counter > DEFAUL_CREDIT && counter < AUTO_CREDIT_MAX);
-  }
-
   function submitCredit() {
-    if(!validateFields()) {
-      return;
-    }
 
     if(selected === NULL) {
       if(getCreditSumm() < DEFAUL_CREDIT) {
@@ -96,6 +89,7 @@ function Calc() {
       } else {
         setApplicationNumber(localStorage.getItem("application-number"));
         setStepCount(STEP_THREE);
+        const number = localStorage.getItem("application-number");
         localStorage.setItem("application-number", Number(number) + ONE);
       }
     }
@@ -169,7 +163,7 @@ function Calc() {
                       }}
                   />
                   <label className="calc__checkbox" 
-                    tabIndex="0" 
+                    tabIndex="0"
                     htmlFor="maternalCapital"
                     onKeyDown={(evt) => {
                       if(evt.key === "Enter") {
@@ -189,17 +183,35 @@ function Calc() {
                     checked={casko}
                     onChange={evt => setCasko(evt.target.checked)}
                   />
-                  <label className="calc__checkbox" htmlFor="casko">Оформить КАСКО в нашем банке</label>
+                  <label 
+                    className="calc__checkbox" 
+                    tabIndex="0"
+                    htmlFor="casko"
+                    onKeyDown={(evt) => {
+                      if(evt.key === "Enter") {
+                        setCasko(evt.target.checked)
+                      }
+                    }}
+                  >Оформить КАСКО в нашем банке</label>
                 </div>
                 <div className={(selected === NULL) ? "calc__insurance" : ""}>
                   <input 
                     className="calc__maternalCapital"
-                    type="checkbox" 
+                    type="checkbox"
                     id="insuranceCheckbox" 
                     checked={insurance}
                     onChange={evt => setInsurance(evt.target.checked)}
                   />
-                  <label className="calc__checkbox" htmlFor="insuranceCheckbox">Оформить Страхование жизни в нашем банке</label>
+                  <label 
+                    className="calc__checkbox" 
+                    htmlFor="insuranceCheckbox"
+                    tabIndex="0"
+                    onKeyDown={(evt) => {
+                      if(evt.key === "Enter") {
+                        setInsurance(evt.target.checked)
+                      }
+                    }}
+                  >Оформить Страхование жизни в нашем банке</label>
                 </div>
               </div>
             </div>

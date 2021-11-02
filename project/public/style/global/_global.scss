@@ -61,6 +61,10 @@ h2, h3, ul {
 }
 
 [class*="ymaps-2"][class*="-ground-pane"] {
-  -webkit-filter: rgb(237, 246, 230);
-  filter: rgb(237, 246, 230);
-  }
+  -webkit-filter: #edf6e6;
+  filter: grayscale(10%);
+}
+
+.ymaps-2-1-79-float-button {
+  border-radius: 50%;
+}

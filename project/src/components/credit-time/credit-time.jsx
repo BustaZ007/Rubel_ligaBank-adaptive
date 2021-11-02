@@ -22,6 +22,17 @@ function CreditTime({creditTime, onChange, selected}) {
     return text_forms[2];
   }
   const year = ['год', 'года', 'лет'];
+
+  function restriction(value) {
+    if(value < min || !value) {
+      value = min;
+    } else if (value > max) {
+      value = max;
+    }
+    onChange(value);
+    forceUpdate();
+  }
+
   return(
     <>
       <label className="calc__label" htmlFor="creditTime">Срок кредитования</label>
@@ -29,15 +40,8 @@ function CreditTime({creditTime, onChange, selected}) {
         className="calc__input" 
         suffix={` ${declOfNum(creditTime, year)}`}
         value={creditTime}
-        onValueChange={(value) => {
-          let inputValue = value.floatValue;
-          if(inputValue < min || !inputValue) {
-            inputValue = min;
-          } else if (inputValue > max) {
-            inputValue = max;
-          }
-          onChange(inputValue);
-          forceUpdate();
+        onBlur={(evt) => {
+          restriction(Number(evt.target.value.substr(0, evt.target.value.length - 4).split(" ").join("")));
         }}
       />
       <input className="calc__range" 

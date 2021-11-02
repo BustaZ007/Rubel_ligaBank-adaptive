@@ -98,6 +98,7 @@
   position: absolute;
   top: 345px;
   left: 44%;
+  cursor: pointer;
 }
 
 .dot-information__item {
@@ -241,7 +242,7 @@
   }
 
   .information__button {
-    width: 48%;
+    width: 90%;
     height: 51px;
     font-size: 16px;
     line-height: 19px;
@@ -253,7 +254,7 @@
 
   .information__img-wrapper {
     margin-top: 7px;
-    margin-right: 64px;
+    margin-right: 0px;
   }
 
   .information__tabs-list {
@@ -275,6 +276,10 @@
     font-size: 18px;
     line-height: 21px;
     font-weight: 500;
+  }
+
+  .information__tabs-item:hover {
+    opacity: 0.7;
   }
   
   .information__tabs-item:nth-child(1)::before {
@@ -342,6 +347,10 @@
     width: 292px;
   }
 
+  .information__img-wrapper {
+    margin-right: 64px;
+  }
+
   .information__tabs-item:nth-child(1)::before {
     left: 91px;
   }
@@ -356,5 +365,9 @@
 
   .information__tabs-item:nth-child(4)::before {
     left: 59px;
+  }
+
+  .information__button {
+    width: 48%;
   }
 }

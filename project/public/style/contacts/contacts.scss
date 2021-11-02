@@ -15,6 +15,10 @@
   font-weight: 500;
 }
 
+.contacts__mobile:hover {
+  opacity: 0.7;
+}
+
 .contacts__mobile::before {
   content: "";
   position: absolute;

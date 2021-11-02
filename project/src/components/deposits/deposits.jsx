@@ -16,7 +16,7 @@ function Deposits() {
           </div>
           <div className="information__img-wrapper">
             <picture>
-              <source media="(min-width: 1366px)" srcSet="./image/piggybank.png 1x" />
+              <source media="(min-width: 1024px)" srcSet="./image/piggybank.png 1x" />
               <source  media="(min-width: 768px)" srcSet="./image/piggybank-tablet.png 1x" />
               <img className="information__image" src="./image/piggybank-mobile.png" alt="piggybank" width="87" height="133" />
             </picture>

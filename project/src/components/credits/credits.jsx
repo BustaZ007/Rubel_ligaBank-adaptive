@@ -18,7 +18,7 @@ function Credits() {
           </div>
           <div className="information__img-wrapper information__img-wrapper-2">
             <picture>
-              <source media="(min-width: 1366px)" srcSet="./image/car-money.png 1x" />
+              <source media="(min-width: 1024px)" srcSet="./image/car-money.png 1x" />
               <source  media="(min-width: 768px)" srcSet="./image/car-money-tablet.png 1x" />
               <img className="information__image" src="./image/car-money-mobile.png" alt="credit" width="87" height="133"/>
             </picture>
